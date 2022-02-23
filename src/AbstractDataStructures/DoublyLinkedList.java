@@ -74,6 +74,21 @@ public class DoublyLinkedList<E>{
 
     // modifed methods
 
+    public E get(int position){
+        Node<E> current = header.next;
+        if(header.next == null){
+            return null ;
+        }
+
+        int i = 0;
+        while(i < position){
+            current = current.next; // Nodo que se encuentra en la posicion a insertar
+            i++;
+        }
+        return current.getData();
+
+    }
+
     public void insertNth(E e, int position){
         Node <E> node = new Node<>(e, null,null);
 
@@ -164,7 +179,8 @@ public class DoublyLinkedList<E>{
         System.out.println("Nueva lista: ");
         myList.show();
         System.out.println("\nSize: " + myList.size());
-
+        System.out.println();
+        System.out.println(myList.get(3));
 
 
 
