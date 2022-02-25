@@ -6,10 +6,13 @@ public class Canguil extends Snack{
     @Override
     public double getPrecio() {
         if (this.tamanio == "Grande") {
-            return 3.35;
+            return 2.60;
+        }
+        else if (this.tamanio == "Normal") {
+            return 2.20;
         }
         else {
-            return 2.85;
+            return 1.85;
         }
     }
 }

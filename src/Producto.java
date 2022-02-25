@@ -29,7 +29,7 @@ public abstract class Producto {
     public String toString() {
         return "Producto{" +
                 "nombre='" + nombre + '\'' +
-                "Precio =" + precio +
+                "Precio =" + getPrecio() + '\'' +
                 "tamanio='" + tamanio + '\'' +
                 '}';
     }

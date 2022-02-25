@@ -5,11 +5,6 @@ public class HotDog extends Snack {
 
     @Override
     public double getPrecio() {
-        if (this.tamanio == "GRANDE") {
-            return 4.00;
-        }
-        else {
-            return 2.50;
-        }
+        return 3.20;
     }
 }

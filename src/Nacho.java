@@ -5,11 +5,6 @@ public class Nacho extends Snack{
 
     @Override
     public double getPrecio() {
-        if (this.tamanio == "GRANDE") {
-            return 4.00;
-        }
-        else {
-            return 3.00;
-        }
+        return 3.95;
     }
 }
