@@ -57,4 +57,13 @@ public class Cliente {
     public void setTelf(String telf) {
         this.telf = telf;
     }
+
+
+    public String toString(){
+        return " Nombres: " + getNombres() + " \n " +
+                "Apellidos: " + getApellidos() + " \n " +
+                "Cedula: " + getCedula() + " \n " +
+                "Direccion: " + getDireccion() + " \n " +
+                "Telf: " + getTelf() + " \n " ;
+    }
 }

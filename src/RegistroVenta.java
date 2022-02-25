@@ -18,7 +18,7 @@ public class RegistroVenta {
     }
 
     /***
-     * Este metodo aniade un nuevo cliente a la Estructura de clientes
+     * Este método añade un nuevo cliente a la Estructura de clientes
      * @param cliente
      */
     public void addCliente(Cliente cliente){
@@ -32,6 +32,60 @@ public class RegistroVenta {
     public DoublyLinkedList<Cliente> getClientes(){
         return this.clientes;
     }
+
+    /***
+     *
+     * @param flag string a ser buscado
+     * @return returna un objeto del tipo cliente con todos los datos.
+     */
+    // TODO: Optimizar a nivel de codigo el metodo searchByName
+    public Cliente searchByName(String flag){
+        Cliente c = new Cliente();
+
+        for(int i=0; i<clientes.size(); i++){ // Ni del primero ni del ultimo
+            System.out.println("Iteracion: "+ i);
+
+            if(i==0){
+                if (this.clientes.getData(i).getNombres() == flag) {
+                    c = this.clientes.getData(i);
+                    break;
+                }
+
+                if(this.clientes.getNode(i).getNext().getData().getNombres() == flag){
+                    c = this.clientes.getNode(i).getNext().getData();
+                    break;
+                }
+            }
+            if(i==clientes.size()-1){
+                if (this.clientes.getData(i).getNombres() == flag) {
+                    c = this.clientes.getData(i);
+                    break;
+                }
+                if(this.clientes.getNode(i).getPrev().getData().getNombres() == flag){
+                    c = this.clientes.getNode(i).getPrev().getData();
+                    break;
+                }
+            }
+
+            if(i!=0 && i!=clientes.size()-1) {
+                if(this.clientes.getData(i).getNombres() == flag) {
+                    c = this.clientes.getData(i);
+                    break;
+                }
+                if(this.clientes.getNode(i).getNext().getData().getNombres() == flag ){
+                    c = this.clientes.getNode(i).getNext().getData();
+                    break;
+                }
+                if(this.clientes.getNode(i).getPrev().getData().getNombres() == flag){
+                    c = this.clientes.getNode(i).getPrev().getData();
+                    break;
+                }
+
+            }
+        }
+        return c;
+    }
+    // TODO: Implementar los metodos searchBy(variables de instacia de la clase Cliente)
 
 
 
@@ -48,10 +102,12 @@ public class RegistroVenta {
         test.addCliente(c2);
         test.addCliente(c3);
 
-        test.getClientes().show();
+        //test.getClientes().show();
         System.out.println();
-        System.out.println(test.getClientes().get(2).getNombres());
+//        System.out.println(test.getClientes().getData(2).getNombres());
+//        System.out.println(test.getClientes().getNode(2));
 
+        System.out.println(test.searchByName("Luca").toString());
 
 
     }
