@@ -1,15 +1,15 @@
 @startuml
 'https://plantuml.com/class-diagram
+
 abstract class RegistroVenta{
-    -clientes: Cliente<DoublyLinkList>
+    -clientes: Cliente<DoublyLinkedList>
     -empleados: Empleado<HashMap>
-    ' Ambos
-    +insertar()
-    +editar()
-    ' Cliente
-    +buscarCliente()
+
     +eliminarCliente()
     +listarCliente()
+    +addCliente(Cliente cliente)
+    +getClientes(): <DoublyLinkedList<Cliente>>
+    +searchByName(String flag): Cliente
 }
 
 class Cliente {
@@ -18,6 +18,17 @@ class Cliente {
     -cédula: String
     -dirección: String
     -telf: String
+
+    '+getNombres()
+    '+setNombres()
+    '+getApellidos()
+    '+setApellidos()
+    '+getCédula()
+    '+setCédula()
+    '+getDirección()
+    '+setDirección()
+    '+getTelf()
+    '+setTelf()
 }
 
 class Empleado{
@@ -27,20 +38,26 @@ class Empleado{
     -cédula: String
     -dirección: String
     -telf: String
+
+    '+getId()
+    '+setId()
+    '+getNombres()
+    '+setNombres()
+    '+getApellidos()
+    '+setApellidos()
+    '+getCédula()
+    '+setCédula()
+    '+getDirección()
+    '+setDirección()
+    '+getTelf()
+    '+setTelf()
 }
-
-'Reservar Película
-
-'class Taquillero
-
-'class Reserva
-
-'class Película
 
 class Facturación{
     -fecha: Date
     -ruc: String
     -total: double
+
     +pago(orden: Orden)
 }
 
@@ -48,6 +65,7 @@ class Orden {
     -ordenID: int
     -cliente: Cliente
     -productos: Producto[]
+
     +añadirProducto(producto: Producto)
     +calcularTotal()
 }
@@ -57,20 +75,29 @@ abstract class Producto{
     #nombre: String
     #precio: double
     #tamaño: String
-    +precio(): double {abstract}
+
+    +getNombre()
+    +setNombre()
+    +getTamaño()
+    +setTamaño()
+    +setPrecio()
+    +getPrecio(): double {abstract}
 }
 
-abstract class Bebida
+abstract class Bebida{
+    #sabor: String
+
+    +getSabor()
+    +setSabor()
+}
 
 abstract class Snack {
-    +toString(): String
+
 }
 
 abstract class Extra{
-    -snack: Snack
-    -descripción: String
-
-    +toString(): String
+    #snack: Snack
+    #descripción: String
 }
 
 class Canguil{
