@@ -172,7 +172,7 @@ public class DoublyLinkedList<E>{
             System.out.print(temp.getData());
             temp = temp.next;
             if(temp != finalTemp){
-                System.out.print(" <--> ");
+                System.out.print(" \n<--> ");
             }
         }
     }

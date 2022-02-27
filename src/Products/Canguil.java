@@ -4,7 +4,7 @@ import Products.Snack;
 
 public class Canguil extends Snack {
     public Canguil() {
-        this.nombre = "Products.Canguil";
+        this.nombre = "Canguil";
     }
 
     @Override
