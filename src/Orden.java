@@ -1,7 +1,8 @@
 public class Orden {
     private int ordenID;
     private Cliente cliente;
-    //TODO: Anaidir producto
+    //TODO: Añadir un array de objetos del tipo producto
+    //TODO: Crear la clase producto.
 
     public Orden(int ordenID, Cliente cliente){
         this.ordenID = ordenID;

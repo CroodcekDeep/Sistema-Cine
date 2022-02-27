@@ -2,7 +2,7 @@ package AbstractDataStructures;
 
 public class DoublyLinkedList<E>{
     // --- Nested Node Class -----
-    private static class Node<E>{
+    public static class Node<E>{
         private E data;
         private Node<E> prev;
         private Node<E> next;
@@ -27,12 +27,11 @@ public class DoublyLinkedList<E>{
             next = n;
         }
     }
-    // --------------------------------
-
     //Variables de instancia de la Doubly Linked List
     private Node<E> header;
     private Node<E> trailer;
     private int size = 0;
+
 
     public DoublyLinkedList(){
         header = new Node<>(null,null,null);
@@ -43,7 +42,9 @@ public class DoublyLinkedList<E>{
     public int size(){return size;}
     public boolean isEmpty(){return size == 0;}
 
-    public E first(){ // Usamos generics, E es un tipo que se define en el main
+
+
+    public E first(){
         if(isEmpty()) return null;
         return header.getNext().getData();
     }
@@ -72,9 +73,12 @@ public class DoublyLinkedList<E>{
         return remove(trailer.getPrev());
     }
 
-    // modifed methods
 
-    public E get(int position){
+    /***
+     * @param position Index position of the dataStructure
+     * @return return the key of the dataStructure
+     */
+    public E getData(int position){
         Node<E> current = header.next;
         if(header.next == null){
             return null ;
@@ -82,56 +86,68 @@ public class DoublyLinkedList<E>{
 
         int i = 0;
         while(i < position){
-            current = current.next; // Nodo que se encuentra en la posicion a insertar
+            current = current.next;
             i++;
         }
         return current.getData();
-
     }
+    public Node<E> getNode(int position){
+        Node<E> current = header.next;
+        if(header.next == null){
+            return null ;
+        }
+
+        int i = 0;
+        while(i < position){
+            current = current.next;
+            i++;
+        }
+        return current;
+    }
+
+//    public E getByName(Cliente cliente ){
+//        // si vale ya les muestro jajaja que no puedo hablar
+//        Node<E> current = header.next;
+//        if(header.next == null){
+//            return null ;
+//        }
+//        int i = 0;
+//        while(current.next!=null){
+//            if(current.getData() == )
+//        }
+//
+//
+//    }
 
     public void insertNth(E e, int position){
         Node <E> node = new Node<>(e, null,null);
-
         if(header.next == null){
-            // Lista vacia
             if(position != 0){
                 return;
-            } else { // posicion en cero, con head == null
+            } else {
                 header.next = node;
             }
         }
 
-        //No editar variables de instancia
-        // Si se ingresa una posicion cero, es decir addFirst()
         if(header.next != null && position == 0){
-            addBetween(e, header,header.getNext()); // Este metodo ya aumenta uno al tamanio
-
+            addBetween(e, header,header.getNext());
             return;
         }
 
         Node<E> current = header.next;
-
         int i = 0;
         while(i < position){
-            current = current.next; // Nodo que se encuentra en la posicion a insertar
+            current = current.next;
             i++;
         }
-
         if(position!=0){
-            //Conecto el nuevo nodo
             node.setPrev(current.prev);
             node.setNext(current);
-            //Actualizo los punteros
             current.prev.setNext(node);
             current.next.setPrev(node);
             size++;
-
         }
-
-
     }
-
-    // metodos priv
 
     private void addBetween(E e, Node<E> prev, Node<E> next){
         Node<E> newest = new Node<>(e, prev,next);
@@ -149,15 +165,13 @@ public class DoublyLinkedList<E>{
         return node.getData();
     }
 
-    //Display
-
     public void show(){
         Node<E> temp = header.next;
         Node<E> finalTemp = trailer;
         while(temp != finalTemp) {
             System.out.print(temp.getData());
             temp = temp.next;
-            if(temp != finalTemp){ // Este head hace referencia al siguiente
+            if(temp != finalTemp){
                 System.out.print(" <--> ");
             }
         }
@@ -180,7 +194,7 @@ public class DoublyLinkedList<E>{
         myList.show();
         System.out.println("\nSize: " + myList.size());
         System.out.println();
-        System.out.println(myList.get(3));
+        System.out.println(myList.getData(3));
 
 
 
