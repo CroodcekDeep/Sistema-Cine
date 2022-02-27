@@ -1,3 +1,5 @@
+package Registro;
+
 public class Empleado{
     private int id;
     private String nombres;
@@ -17,6 +19,7 @@ public class Empleado{
         this.direccion = d;
         this.telf = t;
     }
+
 
     /* Getters */
     public int getId() {
@@ -66,5 +69,17 @@ public class Empleado{
 
     public void setTelf(String telf) {
         this.telf = telf;
+    }
+
+    @Override
+    public String toString() {
+        return "Registro.Empleado{" +
+                "id=" + id +
+                ", nombres='" + nombres + '\'' +
+                ", apellidos='" + apellidos + '\'' +
+                ", cedula='" + cedula + '\'' +
+                ", direccion='" + direccion + '\'' +
+                ", telf='" + telf + '\'' +
+                '}';
     }
 }

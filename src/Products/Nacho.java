@@ -1,6 +1,7 @@
+package Products;
 public class Nacho extends Snack{
     public Nacho() {
-        this.nombre = "Nacho";
+        this.nombre = "Products.Nacho";
     }
 
     @Override

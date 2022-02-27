@@ -1,3 +1,4 @@
+package Products;
 public abstract class Extra extends Snack {
     protected Snack snack;
     protected String description;

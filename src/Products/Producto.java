@@ -1,6 +1,8 @@
+package Products;
+
 public abstract class Producto {
     protected String nombre;
-    protected Double precio;
+    protected double precio;
     protected String tamanio;
 
     public String getNombre() {
@@ -19,7 +21,7 @@ public abstract class Producto {
         this.tamanio = tamanio;
     }
 
-    public void setPrecio(Double precio) {
+    public void setPrecio(double precio) {
         this.precio = precio;
     }
 
@@ -27,10 +29,10 @@ public abstract class Producto {
 
     @Override
     public String toString() {
-        return "Producto{" +
-                "nombre='" + nombre + '\'' +
-                "Precio =" + getPrecio() + '\'' +
-                "tamanio='" + tamanio + '\'' +
-                '}';
+        return "\u001B[32mProducto:" +
+                "\nNombre: " + nombre +
+                "\nPrecio: " + getPrecio() +
+                "\nTamaño: " + tamanio +
+                "\n\u001B[0m";
     }
 }

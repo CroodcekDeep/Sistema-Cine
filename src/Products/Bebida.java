@@ -1,3 +1,5 @@
+package Products;
+
 public abstract class Bebida extends Producto {
     protected String sabor;
 
