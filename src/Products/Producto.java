@@ -1,3 +1,5 @@
+package Products;
+
 public abstract class Producto {
     protected String nombre;
     protected Double precio;
@@ -27,7 +29,7 @@ public abstract class Producto {
 
     @Override
     public String toString() {
-        return "Producto{" +
+        return "Products.Producto{" +
                 "nombre='" + nombre + '\'' +
                 "Precio =" + getPrecio() + '\'' +
                 "tamanio='" + tamanio + '\'' +

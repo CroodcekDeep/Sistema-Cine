@@ -1,3 +1,7 @@
+package Products;
+
+import Products.Snack;
+
 public class Chile extends Extra {
     public Chile(Snack snack) {
         this.snack = snack;

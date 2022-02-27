@@ -1,6 +1,10 @@
-public class Canguil extends Snack{
+package Products;
+
+import Products.Snack;
+
+public class Canguil extends Snack {
     public Canguil() {
-        this.nombre = "Canguil";
+        this.nombre = "Products.Canguil";
     }
 
     @Override

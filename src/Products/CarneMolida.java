@@ -1,3 +1,7 @@
+package Products;
+
+import Products.Snack;
+
 public class CarneMolida extends Extra {
     public CarneMolida(Snack snack) {
         this.snack = snack;

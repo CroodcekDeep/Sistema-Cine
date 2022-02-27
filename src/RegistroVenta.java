@@ -13,9 +13,7 @@ public class RegistroVenta {
 
 
     //TODO: The access methods like setters and getters should be implemented based of the Data Structure logic.
-    public RegistroVenta(){
-
-    }
+    public RegistroVenta(){}
 
     /***
      * Este método añade un nuevo cliente a la Estructura de clientes
@@ -86,9 +84,6 @@ public class RegistroVenta {
         return c;
     }
     // TODO: Implementar los metodos searchBy(variables de instacia de la clase Cliente)
-
-
-
 
 
     public static void main(String arg[]){

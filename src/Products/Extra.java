@@ -1,3 +1,7 @@
+package Products;
+
+import Products.Snack;
+
 public abstract class Extra extends Snack {
     protected Snack snack;
     protected String description;
