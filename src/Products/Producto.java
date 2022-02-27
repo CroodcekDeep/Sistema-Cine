@@ -1,3 +1,5 @@
+package Products;
+
 public abstract class Producto {
     protected String nombre;
     protected double precio;

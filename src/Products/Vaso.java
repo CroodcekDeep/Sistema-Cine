@@ -1,12 +1,15 @@
-public class Botella extends Bebida {
+package Products;
 
-    public Botella(String nombre, double precio, String tamanio, String sabor) {
+import Products.Bebida;
+
+public class Vaso extends Bebida {
+
+    public Vaso(String nombre, double precio, String tamanio, String sabor) {
         this.nombre = nombre;
         this.precio = precio;
         this.tamanio = tamanio;
         this.sabor = sabor;
     }
-
 
     @Override
     public double getPrecio() {
@@ -22,5 +25,6 @@ public class Botella extends Bebida {
                 "Sabor: " + sabor + "\n";
 
         return salida;
+
     }
 }

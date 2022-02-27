@@ -1,3 +1,5 @@
+package Products;
+
 public class CarneMolida extends Extra {
     public CarneMolida(Snack snack) {
         this.snack = snack;
