@@ -1,3 +1,5 @@
+package Registro;
+
 public class Cliente {
     private String nombres;
     private String apellidos;

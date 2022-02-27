@@ -1,3 +1,5 @@
+package Registro;
+
 import Products.Producto;
 import java.util.ArrayList;
 
@@ -8,11 +10,11 @@ public class Orden {
     private Empleado empleado;
 
 
-    public Orden(int ordenID, Cliente cliente, Empleado empleado, ArrayList<Producto> productos) {
+    public Orden(int ordenID, Cliente cliente, Empleado empleado) {
         this.ordenID = ordenID;
         this.cliente = cliente;
         this.empleado = empleado;
-        this.productos = productos;
+
     }
 
     public ArrayList<Producto> getProductos() {
@@ -64,8 +66,8 @@ public class Orden {
     public String toString() {
         return "\u001B[33mOrden:" +
                 "\n\t\tIdOrden: " + ordenID +
-                "\n\t\tCliente: " + cliente +
-                "\n\t\tEmpleado: " + empleado +
+                "\n\t\tRegistro.Cliente: " + cliente +
+                "\n\t\tRegistro.Empleado: " + empleado +
                 "\n\t\tProductos: " + productos +
                 "\n\u001B[0m";
     }

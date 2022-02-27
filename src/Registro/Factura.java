@@ -1,3 +1,5 @@
+package Registro;
+
 import java.util.Date;
 
 public class Factura {
@@ -10,6 +12,14 @@ public class Factura {
         this.fecha = fecha;
         this.ruc = ruc;
         this.total = orden.calcularTotal();
+        this.orden = orden;
+    }
+
+    public Orden getOrden() {
+        return orden;
+    }
+
+    public void setOrden(Orden orden) {
         this.orden = orden;
     }
 

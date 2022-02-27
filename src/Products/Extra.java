@@ -1,10 +1,4 @@
 package Products;
-
-<<<<<<< HEAD
-import Products.Snack;
-
-=======
->>>>>>> gandhyDev
 public abstract class Extra extends Snack {
     protected Snack snack;
     protected String description;

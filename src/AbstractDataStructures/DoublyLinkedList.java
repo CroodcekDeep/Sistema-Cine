@@ -105,7 +105,7 @@ public class DoublyLinkedList<E>{
         return current;
     }
 
-//    public E getByName(Cliente cliente ){
+//    public E getByName(Registro.Cliente cliente ){
 //        // si vale ya les muestro jajaja que no puedo hablar
 //        Node<E> current = header.next;
 //        if(header.next == null){
