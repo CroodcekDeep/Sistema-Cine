@@ -1,10 +1,13 @@
+package Products;
+
+import Products.Bebida;
+
 public class Vaso extends Bebida {
 
-    public Vaso(String nombre, double precio, String tamanio, String presentacion, String sabor) {
+    public Vaso(String nombre, double precio, String tamanio, String sabor) {
         this.nombre = nombre;
         this.precio = precio;
         this.tamanio = tamanio;
-        this.descripcion = presentacion;
         this.sabor = sabor;
     }
 
@@ -16,7 +19,10 @@ public class Vaso extends Bebida {
     @Override
     public String toString() {
         String salida;
-        salida = "Nombre: " + nombre + "\n" + "Precio: " + precio + "\n" + "Tmanio: " + tamanio + "\n" + "Presentacion: " + descripcion + "\n" + "Sabor: " + sabor + "\n";
+        salida = "Nombre: " + nombre + "\n" +
+                "Precio: " + precio + "\n" +
+                "Tamanio: " + tamanio + "\n" +
+                "Sabor: " + sabor + "\n";
 
         return salida;
 

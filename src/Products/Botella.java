@@ -1,10 +1,13 @@
+package Products;
+
+import Products.Bebida;
+
 public class Botella extends Bebida {
 
-    public Botella(String nombre, double precio, String tamanio, String presentacion, String sabor) {
+    public Botella(String nombre, double precio, String tamanio, String sabor) {
         this.nombre = nombre;
         this.precio = precio;
         this.tamanio = tamanio;
-        this.descripcion = presentacion;
         this.sabor = sabor;
     }
 
@@ -19,8 +22,7 @@ public class Botella extends Bebida {
         String salida;
         salida = "Nombre: " + nombre + "\n" +
                 "Precio: " + precio + "\n" +
-                "Tmanio: " + tamanio + "\n" +
-                "Presentacion: " + descripcion + "\n" +
+                "Tamanio: " + tamanio + "\n" +
                 "Sabor: " + sabor + "\n";
 
         return salida;
