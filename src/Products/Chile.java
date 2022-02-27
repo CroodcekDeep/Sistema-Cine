@@ -1,7 +1,10 @@
 package Products;
 
+<<<<<<< HEAD
 import Products.Snack;
 
+=======
+>>>>>>> gandhyDev
 public class Chile extends Extra {
     public Chile(Snack snack) {
         this.snack = snack;

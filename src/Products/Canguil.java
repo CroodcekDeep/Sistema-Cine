@@ -1,10 +1,13 @@
 package Products;
 
+<<<<<<< HEAD
 import Products.Snack;
 
+=======
+>>>>>>> gandhyDev
 public class Canguil extends Snack {
     public Canguil() {
-        this.nombre = "Canguil";
+        this.nombre = "Products.Canguil";
     }
 
     @Override

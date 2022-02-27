@@ -5,19 +5,14 @@ public class Orden {
     private int ordenID;
     private Cliente cliente;
     private ArrayList<Producto> productos;
+    private Empleado empleado;
 
-    @Override
-    public String toString() {
-        return "Orden{" +
-                "ordenID=" + ordenID +
-                ", cliente=" + cliente +
-                ", productos=" + productos +
-                '}';
-    }
 
-    public Orden(int ordenID, Cliente cliente){
+    public Orden(int ordenID, Cliente cliente, Empleado empleado, ArrayList<Producto> productos) {
         this.ordenID = ordenID;
         this.cliente = cliente;
+        this.empleado = empleado;
+        this.productos = productos;
     }
 
     public ArrayList<Producto> getProductos() {
@@ -44,9 +39,34 @@ public class Orden {
         this.cliente = cliente;
     }
 
-    //TODO: add calcularTotal()
-    //TODO: aniadirProducto() ?? logica
+    public Empleado getEmpleado() {
+        return empleado;
+    }
 
+    public void setEmpleado(Empleado empleado) {
+        this.empleado = empleado;
+    }
 
+    public void anadirProducto(Producto producto) {
+        this.productos.add(producto);
+    }
 
+    public double calcularTotal() {
+        double total = 0;
+        for (Producto p : productos) {
+            total += p.getPrecio();
+        }
+
+        return total;
+    }
+
+    @Override
+    public String toString() {
+        return "\u001B[33mOrden:" +
+                "\n\t\tIdOrden: " + ordenID +
+                "\n\t\tCliente: " + cliente +
+                "\n\t\tEmpleado: " + empleado +
+                "\n\t\tProductos: " + productos +
+                "\n\u001B[0m";
+    }
 }
