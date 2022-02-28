@@ -1,9 +1,6 @@
 package Registro;
 
 import AbstractDataStructures.DoublyLinkedList;
-import Products.Botella;
-import Products.Canguil;
-import Products.Producto;
 
 import java.util.*;
 
@@ -92,6 +89,5 @@ public class RegistroVenta {
         return c;
     }
     // TODO: Implementar los metodos searchBy(variables de instacia de la clase Registro.Cliente)
-
 
 }

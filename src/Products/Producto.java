@@ -29,7 +29,7 @@ public abstract class Producto {
 
     @Override
     public String toString() {
-        return "\u001B[32mProducto:" +
+        return "\u001B[32m" +
                 "\nNombre: " + nombre +
                 "\nPrecio: " + getPrecio() +
                 "\nTamaño: " + tamanio +

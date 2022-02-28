@@ -1,6 +1,6 @@
 package Registro;
 
-public class Empleado{
+public class Empleado {
     private int id;
     private String nombres;
     private String apellidos;
@@ -8,16 +8,17 @@ public class Empleado{
     private String direccion;
     private String telf;
 
-    public Empleado(){
+    public Empleado() {
 
     }
-    public Empleado(int id,String n,  String a, String c, String d, String t){
+
+    public Empleado(int id, String nombres, String apellidos, String cedula, String direccion, String telefono) {
         this.id = id;
-        this.nombres = n;
-        this.apellidos = a;
-        this.cedula = c;
-        this.direccion = d;
-        this.telf = t;
+        this.nombres = nombres;
+        this.apellidos = apellidos;
+        this.cedula = cedula;
+        this.direccion = direccion;
+        this.telf = telefono;
     }
 
 
@@ -73,13 +74,11 @@ public class Empleado{
 
     @Override
     public String toString() {
-        return "Registro.Empleado{" +
-                "id=" + id +
-                ", nombres='" + nombres + '\'' +
-                ", apellidos='" + apellidos + '\'' +
-                ", cedula='" + cedula + '\'' +
-                ", direccion='" + direccion + '\'' +
-                ", telf='" + telf + '\'' +
-                '}';
+        return "\nID: " + id +
+                "\nNombres: " + nombres +
+                "\nApellidos: " + apellidos +
+                "\nCédula: " + cedula +
+                "\nDirección: " + direccion +
+                "\nTelf: " + telf + "\n";
     }
 }

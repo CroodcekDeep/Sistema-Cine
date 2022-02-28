@@ -1,30 +1,29 @@
 package Products;
 
-import Products.Bebida;
-
 public class Vaso extends Bebida {
 
-    public Vaso(String nombre, double precio, String tamanio, String sabor) {
-        this.nombre = nombre;
-        this.precio = precio;
-        this.tamanio = tamanio;
-        this.sabor = sabor;
+    public Vaso(String tamanio, String sabor) {
+        this.nombre = "Vaso";
+        this.tamanio = tamanio.toUpperCase();
+        this.sabor = sabor.toUpperCase();
     }
 
     @Override
     public double getPrecio() {
-        return precio;
+        if (this.tamanio.equals("GRANDE")) {
+            return 2.10;
+        } else if (this.tamanio.equals("NORMAL")) {
+            return 1.60;
+        } else {
+            return 1.20;
+        }
     }
 
     @Override
     public String toString() {
-        String salida;
-        salida = "Nombre: " + nombre + "\n" +
-                "Precio: " + precio + "\n" +
-                "Tamanio: " + tamanio + "\n" +
-                "Sabor: " + sabor + "\n";
-
-        return salida;
-
+        return "\nNombre: " + nombre +
+                "\nPrecio: " + getPrecio() +
+                "\nTamaño: " + tamanio +
+                "\nSabor: " + sabor + "\n";
     }
 }

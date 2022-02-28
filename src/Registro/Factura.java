@@ -1,15 +1,17 @@
 package Registro;
 
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Factura {
-    private Date fecha;
+    private String fecha;
     private String ruc;
     private double total;
     private Orden orden;
 
-    public Factura(Date fecha, String ruc, Orden orden) {
-        this.fecha = fecha;
+    public Factura(String ruc, Orden orden) {
+        DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy/MM/dd hh:mm:ss a");
+        fecha = LocalDateTime.now().format(df);
         this.ruc = ruc;
         this.total = orden.calcularTotal();
         this.orden = orden;
@@ -29,8 +31,8 @@ public class Factura {
                 "\n\tRUC: " + ruc +
                 "\n\tFecha: " + fecha +
                 "\n\tORDEN: " + orden +
-                "\n\tSubtotal: " + total +
-                "\n\tTotal: " + (total * 1.12) +
+                "\n\tSubtotal: " + String.format("%.3f", total) +
+                "\n\tTotal: " + String.format("%.3f", (total * 1.12)) +
                 "\n\u001B[0m";
     }
 }

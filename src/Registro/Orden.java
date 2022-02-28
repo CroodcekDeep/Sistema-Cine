@@ -1,20 +1,20 @@
 package Registro;
 
 import Products.Producto;
+
 import java.util.ArrayList;
 
 public class Orden {
     private int ordenID;
     private Cliente cliente;
-    private ArrayList<Producto> productos;
     private Empleado empleado;
+    private ArrayList<Producto> productos = new ArrayList<>();
 
 
     public Orden(int ordenID, Cliente cliente, Empleado empleado) {
         this.ordenID = ordenID;
         this.cliente = cliente;
         this.empleado = empleado;
-
     }
 
     public ArrayList<Producto> getProductos() {
@@ -58,17 +58,16 @@ public class Orden {
         for (Producto p : productos) {
             total += p.getPrecio();
         }
-
         return total;
     }
 
     @Override
     public String toString() {
-        return "\u001B[33mOrden:" +
-                "\n\t\tIdOrden: " + ordenID +
-                "\n\t\tRegistro.Cliente: " + cliente +
-                "\n\t\tRegistro.Empleado: " + empleado +
-                "\n\t\tProductos: " + productos +
+        return "\u001B[33m" +
+                "\nIdOrden: " + ordenID +
+                "\n\tCliente: " + cliente +
+                "\n\tEmpleado: " + empleado +
+                "\n\tProductos: " + productos +
                 "\n\u001B[0m";
     }
 }

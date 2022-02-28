@@ -1,19 +1,18 @@
 package Products;
 
 public class Canguil extends Snack {
-    public Canguil() {
-        this.nombre = "Products.Canguil";
+    public Canguil(String tamanio) {
+        this.nombre = "Canguil";
+        this.tamanio = tamanio.toUpperCase();
     }
 
     @Override
     public double getPrecio() {
-        if (this.tamanio == "Grande") {
+        if (this.tamanio.equals("GRANDE")) {
             return 2.60;
-        }
-        else if (this.tamanio == "Normal") {
+        } else if (this.tamanio.equals("NORMAL")) {
             return 2.20;
-        }
-        else {
+        } else {
             return 1.85;
         }
     }

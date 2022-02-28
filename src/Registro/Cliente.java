@@ -8,16 +8,16 @@ public class Cliente {
     private String telf;
 
 
-    public Cliente(){
+    public Cliente() {
 
     }
-    public Cliente(String n, String a, String c, String d, String t){
-        this.nombres = n;
-        this.apellidos = a;
-        this.cedula = c;
-        this.direccion = d;
-        this.telf = t;
 
+    public Cliente(String nombres, String apellidos, String cedula, String direccion, String telefono) {
+        this.nombres = nombres;
+        this.apellidos = apellidos;
+        this.cedula = cedula;
+        this.direccion = direccion;
+        this.telf = telefono;
     }
 
     public String getNombres() {
@@ -61,11 +61,11 @@ public class Cliente {
     }
 
 
-    public String toString(){
-        return " Nombres: " + getNombres() + " \n " +
-                "Apellidos: " + getApellidos() + " \n " +
-                "Cedula: " + getCedula() + " \n " +
-                "Direccion: " + getDireccion() + " \n " +
-                "Telf: " + getTelf() + " \n " ;
+    public String toString() {
+        return "\nNombres: " + nombres +
+                "\nApellidos: " + apellidos +
+                "\nCédula: " + cedula +
+                "\nDirección: " + direccion +
+                "\nTelf: " + telf + " \n";
     }
 }

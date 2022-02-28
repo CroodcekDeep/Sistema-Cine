@@ -1,7 +1,9 @@
 package Products;
+
 public class HotDog extends Snack {
     public HotDog() {
-        this.nombre = "Products.HotDog";
+        this.nombre = "HotDog";
+        tamanio = "NORMAL";
     }
 
     @Override
