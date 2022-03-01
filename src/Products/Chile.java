@@ -1,3 +1,5 @@
+package Products;
+
 public class Chile extends Extra {
     public Chile(Snack snack) {
         this.snack = snack;
