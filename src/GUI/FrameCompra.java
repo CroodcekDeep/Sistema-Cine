@@ -24,11 +24,7 @@ import javax.swing.table.DefaultTableModel;
 public class FrameCompra extends javax.swing.JInternalFrame {
 
     static Principal principal;
-    Producto misProductos[];
-    DefaultTableModel dtmModelo;
-    final int TAMANIO_ARREGLO = 10;
-    int contador;
-    
+
 
 
     //String[] tamanioNachos = {"Grande", "Mediano"};
@@ -42,17 +38,8 @@ public class FrameCompra extends javax.swing.JInternalFrame {
     public FrameCompra(Principal principal) {
         this.principal = principal;
         initComponents();
-        dtmModelo = new DefaultTableModel();
-        dtmModelo.addColumn("Nombre");
-        dtmModelo.addColumn("Tamaño");
-        dtmModelo.addColumn("Descripcion");
-        dtmModelo.addColumn("Cantidad");
-        dtmModelo.addColumn("Precio");
-        tblProductos.setModel(dtmModelo);
-        misProductos = new Producto[TAMANIO_ARREGLO];
-        contador = 0;
-        
-            //Esconder Variables
+
+        //Esconder Variables
         cmbDescripcion.setVisible(false);
         cmbTamanio.setVisible(false);
         lblDescripcion.setVisible(false);
@@ -93,8 +80,6 @@ public class FrameCompra extends javax.swing.JInternalFrame {
         cmbDescripcion = new javax.swing.JComboBox();
         lblTipoBebida = new javax.swing.JLabel();
         cmbTipoBebida = new javax.swing.JComboBox<>();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblProductos = new javax.swing.JTable();
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -187,19 +172,6 @@ public class FrameCompra extends javax.swing.JInternalFrame {
         cmbTipoBebida.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Vaso", "Botella" }));
         cmbTipoBebida.setSelectedIndex(-1);
 
-        tblProductos.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(tblProductos);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -209,46 +181,41 @@ public class FrameCompra extends javax.swing.JInternalFrame {
                 .addComponent(lblTituloCompra)
                 .addGap(236, 236, 236))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 47, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnAnadirProducto)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnGenerarFactura))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 47, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnAnadirProducto)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnGenerarFactura))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(lblTamanio)
-                                            .addComponent(lblTipoProducto)
-                                            .addComponent(lblCantidad)
-                                            .addComponent(lblDescripcion))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                .addComponent(cmbDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                                    .addComponent(btnCantidadMenos, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addGap(38, 38, 38)
-                                                    .addComponent(lblNumeroCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                    .addComponent(btnCantidadMas, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                            .addComponent(cmbTamanio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(cmbProducto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblTipoBebida)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(cmbTipoBebida, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(18, 18, 18)
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(lblTamanio)
+                                    .addComponent(lblTipoProducto)
+                                    .addComponent(lblCantidad)
+                                    .addComponent(lblDescripcion))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(cmbDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                            .addComponent(btnCantidadMenos, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(38, 38, 38)
+                                            .addComponent(lblNumeroCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(btnCantidadMas, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(cmbTamanio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cmbProducto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 3, Short.MAX_VALUE)
-                                .addComponent(txaMostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(lblTipoBebida)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(cmbTipoBebida, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 3, Short.MAX_VALUE)
+                        .addComponent(txaMostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(48, 48, 48))
         );
         layout.setVerticalGroup(
@@ -291,9 +258,7 @@ public class FrameCompra extends javax.swing.JInternalFrame {
                     .addComponent(btnAnadirProducto))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txaMostrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         pack();
@@ -316,7 +281,7 @@ public class FrameCompra extends javax.swing.JInternalFrame {
             "Normal"}));
         ComboBoxModel<String> tamanioBebida = new DefaultComboBoxModel((new String[]{
             "Grande", "Normal", "Pequeña"}));
-        
+
         //Combobox Extras
         ComboBoxModel<String> descripcionGeneral = new DefaultComboBoxModel((new String[]{
             "Chile", "Carne Molida"}));
@@ -338,11 +303,11 @@ public class FrameCompra extends javax.swing.JInternalFrame {
             cmbTipoBebida.setVisible(false);
             lblTipoBebida.setVisible(false);
             lblCantidad.setVisible(true);
-        lblNumeroCantidad.setVisible(true);
-        btnCantidadMas.setVisible(true);
-        btnCantidadMenos.setVisible(true);
+            lblNumeroCantidad.setVisible(true);
+            btnCantidadMas.setVisible(true);
+            btnCantidadMenos.setVisible(true);
             btnAnadirProducto.setEnabled(true);
-            
+
         } else if (opcionProducto.equals("Nacho")) {
             cmbTamanio.setModel(tamanioNachos);
             cmbTamanio.setVisible(true);
@@ -355,16 +320,16 @@ public class FrameCompra extends javax.swing.JInternalFrame {
             cmbTipoBebida.setVisible(false);
             lblTipoBebida.setVisible(false);
             lblCantidad.setVisible(true);
-        lblNumeroCantidad.setVisible(true);
-        btnCantidadMas.setVisible(true);
-        btnCantidadMenos.setVisible(true);
+            lblNumeroCantidad.setVisible(true);
+            btnCantidadMas.setVisible(true);
+            btnCantidadMenos.setVisible(true);
             btnAnadirProducto.setEnabled(true);
-            
+
         } else if (opcionProducto.equals("HotDog")) {
             cmbTamanio.setModel(tamanioHotDog);
-           // cmbTamanio.setVisible(true);
+            // cmbTamanio.setVisible(true);
             cmbTamanio.setSelectedIndex(0);
-           // lblTamanio.setVisible(true);
+            // lblTamanio.setVisible(true);
             cmbDescripcion.setModel(descripcionGeneral);
             cmbDescripcion.setVisible(true);
             cmbDescripcion.setSelectedIndex(-1);
@@ -372,11 +337,11 @@ public class FrameCompra extends javax.swing.JInternalFrame {
             cmbTipoBebida.setVisible(false);
             lblTipoBebida.setVisible(false);
             lblCantidad.setVisible(true);
-        lblNumeroCantidad.setVisible(true);
-        btnCantidadMas.setVisible(true);
-        btnCantidadMenos.setVisible(true);
+            lblNumeroCantidad.setVisible(true);
+            btnCantidadMas.setVisible(true);
+            btnCantidadMenos.setVisible(true);
             btnAnadirProducto.setEnabled(true);
-            
+
         } else if (opcionProducto.equals("Bebida")) {
             cmbTamanio.setModel(tamanioBebida);
             cmbTamanio.setVisible(true);
@@ -390,9 +355,9 @@ public class FrameCompra extends javax.swing.JInternalFrame {
             cmbTipoBebida.setSelectedIndex(-1);
             lblTipoBebida.setVisible(true);
             lblCantidad.setVisible(true);
-        lblNumeroCantidad.setVisible(true);
-        btnCantidadMas.setVisible(true);
-        btnCantidadMenos.setVisible(true);
+            lblNumeroCantidad.setVisible(true);
+            btnCantidadMas.setVisible(true);
+            btnCantidadMenos.setVisible(true);
             btnAnadirProducto.setEnabled(true);
         }
 
@@ -417,16 +382,8 @@ public class FrameCompra extends javax.swing.JInternalFrame {
             String extra = cmbDescripcion.getSelectedItem().toString();
             String extraTexto = "";
             double precio = 0;
+
             
-            //Prueba tabla
-           /* String nombreProducto = (String) cmbProducto.getSelectedItem();
-            if (contador < misProductos.length) {
-                misProductos[contador] = new Producto(nombreProducto, precio, tamanio);
-                misPerros[contador].setSexo(sexo);
-                misPerros[contador].setRaza(raza);
-                contador++;
-            }
-*/
 
             if (producto == "Canguil") {
                 precio = (new Canguil(tamanio)).getPrecio();
@@ -454,14 +411,12 @@ public class FrameCompra extends javax.swing.JInternalFrame {
             }
             txaProductos.setText(txaProductos.getText().concat(producto)
                     + " " + tamanio + " " + extraTexto + "   " + String.format("%.2f", precio) + "\n");
-            
-            
+
         } else {
             JOptionPane.showMessageDialog(rootPane, "No se puede agregar"
                     + " el producto\nPor favor, ingrese una cantidad válida",
                     "Error", WIDTH, frameIcon);
         }
-
         lblNumeroCantidad.setText(String.valueOf(0));
     }//GEN-LAST:event_btnAnadirProductoActionPerformed
 
@@ -501,7 +456,6 @@ public class FrameCompra extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> cmbTipoBebida;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCantidad;
     private javax.swing.JLabel lblDescripcion;
     private javax.swing.JLabel lblNumeroCantidad;
@@ -509,7 +463,6 @@ public class FrameCompra extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblTipoBebida;
     private javax.swing.JLabel lblTipoProducto;
     private javax.swing.JLabel lblTituloCompra;
-    private javax.swing.JTable tblProductos;
     private javax.swing.JScrollPane txaMostrar;
     private javax.swing.JTextArea txaProductos;
     // End of variables declaration//GEN-END:variables
