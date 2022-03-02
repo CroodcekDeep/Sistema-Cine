@@ -1,4 +1,4 @@
-package Products;
+package Products.snack;
 
 public class Canguil extends Snack {
     public Canguil(String tamanio) {
