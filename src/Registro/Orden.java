@@ -53,10 +53,8 @@ public class Orden {
 
     @Override
     public String toString() {
-        return "\u001B[33m" +
-                "\n\tCliente: " + cliente +
+        return "\n\tCliente: " + cliente +
                 "\n\tEmpleado: " + empleado +
-                "\n\tProductos: " + productos +
-                "\n\u001B[0m";
+                "\n\tProductos: " + productos + "\n";
     }
 }
