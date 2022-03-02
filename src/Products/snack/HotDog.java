@@ -1,4 +1,4 @@
-package Products;
+package Products.snack;
 
 public class HotDog extends Snack {
     public HotDog() {

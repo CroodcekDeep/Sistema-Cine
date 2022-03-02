@@ -5,14 +5,12 @@ import Products.Producto;
 import java.util.ArrayList;
 
 public class Orden {
-    private int ordenID;
     private Cliente cliente;
     private Empleado empleado;
     private ArrayList<Producto> productos = new ArrayList<>();
 
 
-    public Orden(int ordenID, Cliente cliente, Empleado empleado) {
-        this.ordenID = ordenID;
+    public Orden(Cliente cliente, Empleado empleado) {
         this.cliente = cliente;
         this.empleado = empleado;
     }
@@ -23,14 +21,6 @@ public class Orden {
 
     public void setProductos(ArrayList<Producto> productos) {
         this.productos = productos;
-    }
-
-    public int getOrdenID() {
-        return ordenID;
-    }
-
-    public void setOrdenID(int ordenID) {
-        this.ordenID = ordenID;
     }
 
     public Cliente getCliente() {
@@ -64,7 +54,6 @@ public class Orden {
     @Override
     public String toString() {
         return "\u001B[33m" +
-                "\nIdOrden: " + ordenID +
                 "\n\tCliente: " + cliente +
                 "\n\tEmpleado: " + empleado +
                 "\n\tProductos: " + productos +
