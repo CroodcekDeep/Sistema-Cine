@@ -37,13 +37,12 @@ public class Factura {
 
     @Override
     public String toString() {
-        return "\u001B[31mFACTURA:" +
+        return "FACTURA:" +
                 "\n\tNombre Empresa: " + nombreEmpresa +
                 "\n\tRUC: " + ruc +
                 "\n\tFecha: " + fecha +
                 "\n\tORDEN: " + orden +
                 "\n\tSubtotal: " + String.format("%.3f", total) +
-                "\n\tTotal: " + String.format("%.3f", (total * 1.12)) +
-                "\n\u001B[0m";
+                "\n\tTotal: " + String.format("%.3f", (total * 1.12)) + "\n";
     }
 }
