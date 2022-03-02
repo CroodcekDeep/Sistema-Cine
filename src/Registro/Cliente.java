@@ -7,7 +7,6 @@ public class Cliente {
     private String direccion;
     private String telf;
 
-
     public Cliente() {
 
     }
@@ -59,7 +58,6 @@ public class Cliente {
     public void setTelf(String telf) {
         this.telf = telf;
     }
-
 
     public String toString() {
         return "\nNombres: " + nombres +
