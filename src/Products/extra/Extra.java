@@ -1,3 +1,7 @@
+package Products.extra;
+
+import Products.snack.Snack;
+
 public abstract class Extra extends Snack {
     protected Snack snack;
     protected String description;

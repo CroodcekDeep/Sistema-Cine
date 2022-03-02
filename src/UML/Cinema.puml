@@ -2,13 +2,13 @@
 'https://plantuml.com/class-diagram
 
 abstract class RegistroVenta{
-    -clientes: Cliente<DoublyLinkedList>
-    -empleados: Empleado<HashMap>
+    -ordenes: DoublyLinkedList<Orden>
+    -historialRegistro: HashMap<Integer, Factura>
 
-    +eliminarCliente()
-    +listarCliente()
-    +addCliente(Cliente cliente)
-    +getClientes(): <DoublyLinkedList<Cliente>>
+    +getHistorialRegistro(): HashMap<Integer, Factura>
+    +setHistorialRegistro(HashMap<Integer, Factura> historialRegistro)
+    +addOrden(Orden orden)
+    +getOrdenes(): DoublyLinkedList<Orden>
     +searchByName(String flag): Cliente
 }
 
@@ -18,7 +18,6 @@ class Cliente {
     -cédula: String
     -dirección: String
     -telf: String
-
     '+getNombres()
     '+setNombres()
     '+getApellidos()
@@ -38,7 +37,6 @@ class Empleado{
     -cédula: String
     -dirección: String
     -telf: String
-
     '+getId()
     '+setId()
     '+getNombres()
@@ -53,18 +51,17 @@ class Empleado{
     '+setTelf()
 }
 
-class Facturación{
-    -fecha: Date
+class Factura{
+    -nombreEmpresa: String
     -ruc: String
+    -fecha: String
     -total: double
-
-    +pago(orden: Orden)
 }
 
 class Orden {
-    -ordenID: int
     -cliente: Cliente
-    -productos: Producto[]
+    -empleado: Empleado
+    -productos: ArrayList<Producto>
 
     +añadirProducto(producto: Producto)
     +calcularTotal()
@@ -76,12 +73,12 @@ abstract class Producto{
     #precio: double
     #tamaño: String
 
-    +getNombre()
+    +getNombre(): String
     +setNombre()
-    +getTamaño()
+    +getTamaño(): String
     +setTamaño()
-    +setPrecio()
     +getPrecio(): double {abstract}
+    +setPrecio()
 }
 
 abstract class Bebida{
@@ -115,7 +112,7 @@ class HotDog{
 ' Patrón de Diseño -> Decorator
 Orden o- Producto: contiene
 
-Facturación - Orden: tiene
+Factura "1"->"1" Orden: tiene
 
 Producto <|-- Snack
 Producto <|-- Bebida
@@ -131,9 +128,9 @@ Extra <|-- Chile
 Bebida <|-- Vaso
 Bebida <|-- Botella
 
-Cliente -- RegistroVenta
-Empleado -- RegistroVenta
-RegistroVenta --> Orden: llena
-
+Orden "1"-->"1" Cliente: tiene
+Orden "1"-->"1" Empleado: tiene
+RegistroVenta "1"-->"1..*" Orden: guarda
+RegistroVenta "1"-->"1..*" Factura: guarda
 
 @enduml
