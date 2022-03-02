@@ -5,7 +5,6 @@ import AbstractDataStructures.DoublyLinkedList;
 import java.util.*;
 
 public class RegistroVenta {
-
     private DoublyLinkedList<Orden> ordenes = new DoublyLinkedList<Orden>();
     private HashMap<Integer, Factura> historialRegistro = new HashMap<>();
 

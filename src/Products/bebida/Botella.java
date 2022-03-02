@@ -1,4 +1,4 @@
-package Products;
+package Products.bebida;
 
 public class Botella extends Bebida {
 

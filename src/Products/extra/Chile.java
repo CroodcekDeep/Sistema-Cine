@@ -1,4 +1,6 @@
-package Products;
+package Products.extra;
+
+import Products.snack.Snack;
 
 public class Chile extends Extra {
     public Chile(Snack snack) {
@@ -8,6 +10,6 @@ public class Chile extends Extra {
 
     @Override
     public double getPrecio() {
-        return 0.40 + snack.getPrecio();
+        return 0.80 + snack.getPrecio();
     }
 }

@@ -4,12 +4,14 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class Factura {
-    private String fecha;
+    private String nombreEmpresa;
     private String ruc;
+    private String fecha;
     private double total;
     private Orden orden;
 
-    public Factura(String ruc, Orden orden) {
+    public Factura(String nombreEmpresa, String ruc, Orden orden) {
+        this.nombreEmpresa = nombreEmpresa.toUpperCase();
         DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy/MM/dd hh:mm:ss a");
         fecha = LocalDateTime.now().format(df);
         this.ruc = ruc;
@@ -25,9 +27,18 @@ public class Factura {
         this.orden = orden;
     }
 
+    public String getNombreEmpresa() {
+        return nombreEmpresa;
+    }
+
+    public void setNombreEmpresa(String nombreEmpresa) {
+        this.nombreEmpresa = nombreEmpresa;
+    }
+
     @Override
     public String toString() {
         return "\u001B[31mFACTURA:" +
+                "\n\tNombre Empresa: " + nombreEmpresa +
                 "\n\tRUC: " + ruc +
                 "\n\tFecha: " + fecha +
                 "\n\tORDEN: " + orden +
