@@ -28,7 +28,7 @@ public class RegistroVenta {
     }
 
     /***
-     * Este metodo retorna la lista de clientes.
+     * Este método retorna la lista de clientes.
      * @return
      */
     public DoublyLinkedList<Orden> getOrdenes() {
@@ -38,10 +38,10 @@ public class RegistroVenta {
     /***
      *
      * @param flag string a ser buscado
-     * @return returna un objeto del tipo cliente con todos los datos.
+     * @return retorna un objeto del tipo cliente con todos los datos.
      */
-    // TODO: Optimizar a nivel de codigo el metodo searchByName
-    public Cliente searchByName(String flag) {
+    // TODO: Optimizar a nivel de código el método searchByName
+    public Cliente searchByNameClient(String flag) {
         Cliente c = new Cliente();
 
         for (int i = 0; i < ordenes.size(); i++) { // Ni del primero ni del ultimo
@@ -82,11 +82,10 @@ public class RegistroVenta {
                     c = this.ordenes.getNode(i).getPrev().getData().getCliente();
                     break;
                 }
-
             }
         }
         return c;
     }
-    // TODO: Implementar los metodos searchBy(variables de instacia de la clase Registro.Cliente)
+    // TODO: Implementar los métodos searchBy(variables de instancia de la clase Registro.Cliente)
 
 }
