@@ -1,4 +1,4 @@
-package Products;
+package Products.snack;
 
 public class Nacho extends Snack {
     public Nacho(String tamanio) {
