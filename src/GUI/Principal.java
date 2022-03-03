@@ -5,8 +5,13 @@
  */
 package GUI;
 
+import Products.Producto;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.Image;
+import java.util.ArrayList;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 
@@ -14,30 +19,40 @@ import javax.swing.JOptionPane;
  *
  * @author danie
  */
-public class Principal extends javax.swing.JFrame {
+public
+        class Principal extends javax.swing.JFrame {
+
     //Se debe indicar la cantidad máxima de libros de la biblioteca
-    final int MAX_LIBROS=50;
-    
+    ArrayList<Producto> productos = new ArrayList<>();
+
     //Se declaran las instancias de las estructuras
     //ArregloLibros libros = new ArregloLibros(MAX_LIBROS);
     //ListaClientes clientes = new ListaClientes();
     //ColaReservaciones reservaciones = new ColaReservaciones();
-    
     //Se inicializan las interfaces
     FrameCompra compra = new FrameCompra(this);
     FrameRegistrarCliente registrarCliente = new FrameRegistrarCliente(this);
     FrameCompra registrarReservacion = new FrameCompra(this);
     FrameBuscarReservacion eliminarReservacion = new FrameBuscarReservacion(this);
     FrameGenerarFactura registrarLibro = new FrameGenerarFactura(this);
-    
-    public Principal() {
+    FrameGenerarFactura generarFacturas = new FrameGenerarFactura(this);
+
+    public
+            Principal() {
         initComponents();
+        jCmbRegistro.setVisible(false);
         this.setExtendedState(MAXIMIZED_BOTH);
         ventanaPrincipal.add(compra);
         ventanaPrincipal.add(registrarCliente);
         ventanaPrincipal.add(registrarReservacion);
         ventanaPrincipal.add(eliminarReservacion);
         ventanaPrincipal.add(registrarLibro);
+        ventanaPrincipal.add(generarFacturas);
+//carga de imagenes
+        this.setTitle("Cinema");
+        ImageIcon imagenFondo = new ImageIcon("src\\img\\SistemaFondo_1.jpg");
+        //jLabel1.setIcon(new ImageIcon(imagenFondo.getImage().getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(), Image.SCALE_SMOOTH)));
+
     }
 
     /**
@@ -52,6 +67,7 @@ public class Principal extends javax.swing.JFrame {
         ventanaPrincipal = new javax.swing.JDesktopPane();
         btnCatalogo = new javax.swing.JButton();
         btnRegistro = new javax.swing.JButton();
+        jCmbRegistro = new javax.swing.JComboBox<>();
         jMenuBar1 = new javax.swing.JMenuBar();
         btnClientes = new javax.swing.JMenu();
         btnConsultarClientes = new javax.swing.JMenuItem();
@@ -62,6 +78,7 @@ public class Principal extends javax.swing.JFrame {
 
         btnCatalogo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnCatalogo.setText("Catálogo");
+        btnCatalogo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCatalogo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCatalogoActionPerformed(evt);
@@ -70,34 +87,47 @@ public class Principal extends javax.swing.JFrame {
 
         btnRegistro.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnRegistro.setText("Registro");
+        btnRegistro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnRegistro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistroActionPerformed(evt);
             }
         });
 
+        jCmbRegistro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Registro ", "Registro Cliente", "Registro Empleado", "Registro Orden", "Registro Factura", "Registro Venta" }));
+        jCmbRegistro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCmbRegistroActionPerformed(evt);
+            }
+        });
+
+        ventanaPrincipal.setLayer(btnCatalogo, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        ventanaPrincipal.setLayer(btnRegistro, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        ventanaPrincipal.setLayer(jCmbRegistro, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout ventanaPrincipalLayout = new javax.swing.GroupLayout(ventanaPrincipal);
         ventanaPrincipal.setLayout(ventanaPrincipalLayout);
         ventanaPrincipalLayout.setHorizontalGroup(
             ventanaPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ventanaPrincipalLayout.createSequentialGroup()
-                .addGap(108, 108, 108)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ventanaPrincipalLayout.createSequentialGroup()
+                .addGap(129, 129, 129)
                 .addComponent(btnCatalogo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 205, Short.MAX_VALUE)
-                .addComponent(btnRegistro)
-                .addGap(117, 117, 117))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 219, Short.MAX_VALUE)
+                .addGroup(ventanaPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnRegistro)
+                    .addComponent(jCmbRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(51, 51, 51))
         );
         ventanaPrincipalLayout.setVerticalGroup(
             ventanaPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ventanaPrincipalLayout.createSequentialGroup()
-                .addContainerGap(250, Short.MAX_VALUE)
+                .addContainerGap(238, Short.MAX_VALUE)
                 .addGroup(ventanaPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCatalogo)
-                    .addComponent(btnRegistro))
-                .addGap(177, 177, 177))
+                    .addComponent(btnRegistro)
+                    .addComponent(jCmbRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCatalogo))
+                .addGap(189, 189, 189))
         );
-        ventanaPrincipal.setLayer(btnCatalogo, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        ventanaPrincipal.setLayer(btnRegistro, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         btnClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/user.png"))); // NOI18N
         btnClientes.setText("Registro");
@@ -141,15 +171,37 @@ public class Principal extends javax.swing.JFrame {
         registrarCliente.limpiarAreaDeTexto();
     }//GEN-LAST:event_btnRegistrarClienteActionPerformed
 
+    private void btnRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroActionPerformed
+        jCmbRegistro.setVisible(true);
+        btnRegistro.setVisible(false);
+
+    }//GEN-LAST:event_btnRegistroActionPerformed
+
     private void btnCatalogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCatalogoActionPerformed
         // TODO add your handling code here:
         CentrarVentana(compra);
     }//GEN-LAST:event_btnCatalogoActionPerformed
 
-    private void btnRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroActionPerformed
-        // TODO add your handling code here:
-        //CentrarVentana(registro);
-    }//GEN-LAST:event_btnRegistroActionPerformed
+    private void jCmbRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCmbRegistroActionPerformed
+        /*
+ Registro 
+Registro Cliente
+Registro Empleado
+Registro Orden
+Registro Factura
+Registro Venta*/
+
+        int opcion = jCmbRegistro.getSelectedIndex();
+        if (opcion == 0) {
+            JOptionPane.showMessageDialog(null, "DEBE SELECCIONAR UNA OPCION");
+        }
+        else if (opcion == 1) {
+            CentrarVentana(registrarCliente);
+        }
+        else if (opcion == 2) {
+
+        }
+    }//GEN-LAST:event_jCmbRegistroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -162,14 +214,15 @@ public class Principal extends javax.swing.JFrame {
         frame.show();
     }
 
-   void cerrarVentanas() {
+    void cerrarVentanas() {
         registrarCliente.setVisible(false);
         registrarReservacion.setVisible(false);
         eliminarReservacion.setVisible(false);
         registrarLibro.setVisible(false);
     }
 
-    public static void main(String args[]) {
+    public static
+            void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -182,13 +235,17 @@ public class Principal extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
+        }
+        catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
+        }
+        catch (InstantiationException ex) {
             java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
+        }
+        catch (IllegalAccessException ex) {
             java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        }
+        catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
@@ -202,7 +259,8 @@ public class Principal extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
+            public
+                    void run() {
                 new Principal().setVisible(true);
             }
         });
@@ -215,6 +273,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem btnConsultarClientes;
     private javax.swing.JMenuItem btnRegistrarCliente;
     private javax.swing.JButton btnRegistro;
+    private javax.swing.JComboBox<String> jCmbRegistro;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JDesktopPane ventanaPrincipal;
     // End of variables declaration//GEN-END:variables

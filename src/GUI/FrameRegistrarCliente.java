@@ -5,20 +5,23 @@
  */
 package GUI;
 
-/**
- *
- * @author danie
- */
-public class FrameRegistrarCliente extends javax.swing.JInternalFrame {
-    static Principal principal;
-    /**
-     * Creates new form FrameRegistrarVenta
-     */
-    public FrameRegistrarCliente() {
+import Registro.Cliente;
+import Registro.Factura;
+import com.sun.security.ntlm.Client;
+
+public
+        class FrameRegistrarCliente extends javax.swing.JInternalFrame {
+    
+    static
+            Principal principal;
+    
+    public
+            FrameRegistrarCliente() {
         initComponents();
     }
     
-    public FrameRegistrarCliente(Principal principal) {
+    public
+            FrameRegistrarCliente(Principal principal) {
         this.principal = principal;
         initComponents();
     }
@@ -48,6 +51,7 @@ public class FrameRegistrarCliente extends javax.swing.JInternalFrame {
         panelMostrarClienteRegistro = new javax.swing.JScrollPane();
         txaMostrarClienteRegistro = new javax.swing.JTextArea();
         btnRegistrarCliente = new javax.swing.JButton();
+        btonAceptar = new javax.swing.JButton();
 
         jLabel1.setText("Nombres");
 
@@ -98,10 +102,17 @@ public class FrameRegistrarCliente extends javax.swing.JInternalFrame {
         txaMostrarClienteRegistro.setRows(5);
         panelMostrarClienteRegistro.setViewportView(txaMostrarClienteRegistro);
 
-        btnRegistrarCliente.setText("Registrar");
+        btnRegistrarCliente.setText("VISUALIZAR");
         btnRegistrarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistrarClienteActionPerformed(evt);
+            }
+        });
+
+        btonAceptar.setText("REGISTRAR");
+        btonAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btonAceptarActionPerformed(evt);
             }
         });
 
@@ -135,7 +146,9 @@ public class FrameRegistrarCliente extends javax.swing.JInternalFrame {
                                     .addComponent(txtCICliente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtTelefonoCliente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(43, 43, 43)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btonAceptar)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(37, 37, 37)
                         .addComponent(panelMostrarClienteRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -175,7 +188,9 @@ public class FrameRegistrarCliente extends javax.swing.JInternalFrame {
                     .addComponent(jLabel5)
                     .addComponent(txtTelefonoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
-                .addComponent(btnRegistrarCliente)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnRegistrarCliente)
+                    .addComponent(btonAceptar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelMostrarClienteRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(42, Short.MAX_VALUE))
@@ -185,7 +200,15 @@ public class FrameRegistrarCliente extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRegistrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarClienteActionPerformed
-        //Se valida que los campos no estén vacíos y que la cédula sea válida
+        String nombre = this.txtNombreCliente.getText();
+        String apellido = this.txtApellidoCliente.getText();
+        String ci = this.txtCICliente.getText();
+        String direccion = this.txtDireccionCliente.getText();
+        String telefono = this.txtTelefonoCliente.getText();
+        Cliente cliente = new Cliente(nombre, apellido, ci, direccion, telefono);
+        txaMostrarClienteRegistro.setText(cliente.toString());
+
+        /* //Se valida que los campos no estén vacíos y que la cédula sea válida
         if (!txtNombreCliente.getText().isEmpty()
                 && !txtApellidoCliente.getText().isEmpty()
                 && !txtCICliente.getText().isEmpty()
@@ -238,25 +261,34 @@ public class FrameRegistrarCliente extends javax.swing.JInternalFrame {
         else {
             txaMostrarClienteRegistro.setText("No se ha ingresado información suficiente"
                     + " para realizar el registro.\nPor favor, llene todos los campos");
-        }
+        }*/
     }//GEN-LAST:event_btnRegistrarClienteActionPerformed
 
+    private void btonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btonAceptarActionPerformed
+        principal.CentrarVentana(principal.generarFacturas);
+        principal.generarFacturas.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btonAceptarActionPerformed
+
     //Método para limpiar todos los campos
-    public void limpiarCasillas(){
+    public
+            void limpiarCasillas() {
         txtApellidoCliente.setText(null);
         txtNombreCliente.setText(null);
         txtCICliente.setText(null);
         txtDireccionCliente.setText(null);
         txtTelefonoCliente.setText(null);
     }
-    
+
     //Método para limpiar el área de texto
-    public void limpiarAreaDeTexto(){
+    public
+            void limpiarAreaDeTexto() {
         txaMostrarClienteRegistro.setText(null);
     }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegistrarCliente;
+    private javax.swing.JButton btonAceptar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
