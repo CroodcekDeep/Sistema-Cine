@@ -12,6 +12,6 @@ Por ello, el principal problema que se detecto, es la falta de un sistema para l
 - [NetBeans](https://netbeans.apache.org/) - Enfocado para la parte gráfica
 
 ### Autores
-- Gutemberg Mendoza
-- Ginno Taimal
-- Pablo Vélez
+- [Gutemberg Mendoza](https://github.com/matardy)
+- [Ginno Taimal](https://github.com/CroodcekDeep)
+- [Pablo Vélez](https://github.com/PabloVelez08)
