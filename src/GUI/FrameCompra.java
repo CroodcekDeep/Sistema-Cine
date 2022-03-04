@@ -149,7 +149,7 @@ public class FrameCompra extends javax.swing.JInternalFrame {
             }
         });
 
-        cmbProducto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Canguil", "Nacho", "HotDog", "Bebida" }));
+        cmbProducto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Canguil", "Nacho", "HotDog", "Bebida", "Papi Pollo" }));
         cmbProducto.setSelectedIndex(-1);
         cmbProducto.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         cmbProducto.addItemListener(new java.awt.event.ItemListener() {
