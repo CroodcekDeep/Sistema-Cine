@@ -339,24 +339,24 @@ public class FrameCompra extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         //Combobox Tamanio
         ComboBoxModel<String> tamanioNachos = new DefaultComboBoxModel((new String[]{
-            "Normal", "Grande"}));
+                "Normal", "Grande"}));
         ComboBoxModel<String> tamanioCanguil = new DefaultComboBoxModel((new String[]{
-            "Normal", "Grande", "Pequeño"}));
+                "Normal", "Grande", "Pequeño"}));
         ComboBoxModel<String> tamanioHotDog = new DefaultComboBoxModel((new String[]{
-            "Normal"}));
+                "Normal"}));
         ComboBoxModel<String> tamanioBebida = new DefaultComboBoxModel((new String[]{
-            "Normal", "Grande"}));
+                "Normal", "Grande"}));
 
         //Combobox Extras
         ComboBoxModel<String> descripcionGeneral = new DefaultComboBoxModel((new String[]{
-            "Sin Extra", "Chile", "Carne Molida"}));
+                "Sin Extra", "Chile", "Carne Molida"}));
         ComboBoxModel<String> descripcionBebida = new DefaultComboBoxModel((new String[]{
-            "Coca-Cola", "Sprite", "Fanta"}));
-        
+                "Coca-Cola", "Sprite", "Fanta"}));
+
         String opcionProducto = cmbProducto.getSelectedItem().toString();
-        
+
         cmbTamanio.setSelectedIndex(-1);
-        
+
         if (opcionProducto.equals("Canguil")) {
             cmbTamanio.setModel(tamanioCanguil);
             cmbTamanio.setVisible(true);
@@ -374,7 +374,7 @@ public class FrameCompra extends javax.swing.JInternalFrame {
             btnAnadirProducto.setEnabled(true);
             this.imgProducto = new ImageIcon("src\\img\\popcorn.jpg");
             jLImagenProducto.setIcon(new ImageIcon(imgProducto.getImage().getScaledInstance(jLImagenProducto.getWidth(), jLImagenProducto.getHeight(), Image.SCALE_SMOOTH)));
-            
+
         } else if (opcionProducto.equals("Nacho")) {
             cmbTamanio.setModel(tamanioNachos);
             cmbTamanio.setVisible(true);
@@ -393,7 +393,7 @@ public class FrameCompra extends javax.swing.JInternalFrame {
             btnAnadirProducto.setEnabled(true);
             this.imgProducto = new ImageIcon("src\\img\\nachos.jpg");
             jLImagenProducto.setIcon(new ImageIcon(imgProducto.getImage().getScaledInstance(jLImagenProducto.getWidth(), jLImagenProducto.getHeight(), Image.SCALE_SMOOTH)));
-            
+
         } else if (opcionProducto.equals("HotDog")) {
             cmbTamanio.setModel(tamanioHotDog);
             cmbTamanio.setVisible(false);
@@ -412,7 +412,7 @@ public class FrameCompra extends javax.swing.JInternalFrame {
             btnAnadirProducto.setEnabled(true);
             this.imgProducto = new ImageIcon("src\\img\\hotdog.jpg");
             jLImagenProducto.setIcon(new ImageIcon(imgProducto.getImage().getScaledInstance(jLImagenProducto.getWidth(), jLImagenProducto.getHeight(), Image.SCALE_SMOOTH)));
-            
+
         } else if (opcionProducto.equals("Bebida")) {
             cmbTamanio.setModel(tamanioBebida);
             cmbTamanio.setVisible(true);
@@ -432,10 +432,25 @@ public class FrameCompra extends javax.swing.JInternalFrame {
             btnAnadirProducto.setEnabled(true);
             this.imgProducto = new ImageIcon("src\\img\\cocacolaaCine.jpg");
             jLImagenProducto.setIcon(new ImageIcon(imgProducto.getImage().getScaledInstance(jLImagenProducto.getWidth(), jLImagenProducto.getHeight(), Image.SCALE_SMOOTH)));
-            
-        }
 
-    }//GEN-LAST:event_cmbProductoItemStateChanged
+        } else if (opcionProducto.equals("Papi Pollo")) {
+            cmbTamanio.setModel(tamanioNachos);
+            cmbTamanio.setVisible(true);
+            cmbTamanio.setSelectedIndex(0);
+            lblTamanio.setVisible(true);
+            cmbDescripcion.setModel(descripcionGeneral);
+            cmbDescripcion.setVisible(true);
+            cmbDescripcion.setSelectedIndex(0);
+            lblDescripcion.setVisible(true);
+            cmbTipoBebida.setVisible(false);
+            lblTipoBebida.setVisible(false);
+            lblCantidad.setVisible(true);
+            lblNumeroCantidad.setVisible(true);
+            btnCantidadMas.setVisible(true);
+            btnCantidadMenos.setVisible(true);
+            btnAnadirProducto.setEnabled(true);
+        }//GEN-LAST:event_cmbProductoItemStateChanged
+    }
 
     private void cmbTamanioItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbTamanioItemStateChanged
         // TODO add your handling code here:
@@ -481,6 +496,11 @@ public class FrameCompra extends javax.swing.JInternalFrame {
                     snack = new HotDog();
                     
                 }
+                if (producto == "Papi Pollo") {
+                    snack = new PapiPollo(tamanio);
+
+                }
+
                 
                 if (cmbDescripcion.getSelectedIndex() != 0) {
                     if (extra == "Chile") {

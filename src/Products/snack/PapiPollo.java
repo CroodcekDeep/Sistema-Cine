@@ -10,9 +10,9 @@ public class PapiPollo extends Snack{
     @Override
     public double getPrecio() {
         if (this.tamanio.equals("GRANDE")) {
-            return 4.20;
+            return 2.5;
         } else {
-            return 3.95;
+            return 1.5;
         }
     }
 }
