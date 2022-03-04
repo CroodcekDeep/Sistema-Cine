@@ -9,6 +9,7 @@ Por ello, el principal problema que se detecto, es la falta de un sistema para l
 
 ## Despliegue 📦
 Se necesita Oracle OpenJDK version 17.0.2 para ejecutar el archivo:
+
 [Sistema-Cine](https://github.com/CroodcekDeep/Sistema-Cine/blob/main/Sistema-Cine.jar)
 
 ## Construido con 🛠️
