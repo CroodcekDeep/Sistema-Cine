@@ -6,6 +6,7 @@ public class Canguil extends Snack {
         this.tamanio = tamanio.toUpperCase();
     }
 
+  
     @Override
     public double getPrecio() {
         if (this.tamanio.equals("GRANDE")) {
@@ -16,4 +17,5 @@ public class Canguil extends Snack {
             return 1.85;
         }
     }
+
 }

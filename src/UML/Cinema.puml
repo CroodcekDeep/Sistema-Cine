@@ -60,7 +60,6 @@ class Factura{
 
 class Orden {
     -cliente: Cliente
-    -empleado: Empleado
     -productos: ArrayList<Producto>
 
     +añadirProducto(producto: Producto)
@@ -129,7 +128,6 @@ Bebida <|-- Vaso
 Bebida <|-- Botella
 
 Orden "1"-->"1" Cliente: tiene
-Orden "1"-->"1" Empleado: tiene
 RegistroVenta "1"-->"1..*" Orden: guarda
 RegistroVenta "1"-->"1..*" Factura: guarda
 
