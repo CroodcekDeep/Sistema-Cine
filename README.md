@@ -8,8 +8,8 @@ Por ello, el principal problema que se detecto, es la falta de un sistema para l
 - Generación de facturas.
 
 ## Construido con 🛠️
-- IntelliJ IDEA: Enfocado para la parte lógica
-- NetBeans: Enfocado para la parte gráfica
+- [IntelliJ IDEA](https://www.jetbrains.com/es-es/idea/) - Enfocado para la parte lógica
+- [NetBeans](https://netbeans.apache.org/) - Enfocado para la parte gráfica
 
 ### Autores
 - Gutemberg Mendoza
