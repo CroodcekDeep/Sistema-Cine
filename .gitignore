@@ -78,3 +78,9 @@ fabric.properties
 
 # TestClass
 src/TestSistema.java
+/build/
+
+# Files of NetBeans
+build.xml
+manifest.mf
+nbproject/

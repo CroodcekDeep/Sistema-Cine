@@ -4,6 +4,8 @@ public abstract class Producto {
     protected String nombre;
     protected double precio;
     protected String tamanio;
+    
+    
 
     public String getNombre() {
         return nombre;
