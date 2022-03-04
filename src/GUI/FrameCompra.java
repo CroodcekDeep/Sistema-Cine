@@ -31,28 +31,29 @@ import javax.swing.table.DefaultTableModel;
  * @author danie
  */
 public class FrameCompra extends javax.swing.JInternalFrame {
-
+    
     Double precioFinal = 0.0;
     Double precio;
-
+    
     static Principal principal;
-
+    
     ImageIcon imgProducto;
     DefaultTableModel tableProductos = new DefaultTableModel();
     ArrayList<Producto> listaProductos = new ArrayList<>();
-
+    
     public FrameCompra() {
         initComponents();
         this.setTitle("Cinema");
         ImageIcon imagenFondo = new ImageIcon("src\\img\\SistemaFondo_1.jpg");
         setModel();
         lblValor.setText("");
-
+        
+        
     }
-
+    
     public FrameCompra(Principal principal) {
         this.principal = principal;
-
+        
         initComponents();
         setModel();
         //Esconder Variables
@@ -66,7 +67,8 @@ public class FrameCompra extends javax.swing.JInternalFrame {
         lblNumeroCantidad.setVisible(false);
         btnCantidadMas.setVisible(false);
         btnCantidadMenos.setVisible(false);
-
+        lblValor.setVisible(false);
+        
     }
 
     /**
@@ -100,6 +102,7 @@ public class FrameCompra extends javax.swing.JInternalFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableTotal = new javax.swing.JTable();
         lblValor = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -222,6 +225,8 @@ public class FrameCompra extends javax.swing.JInternalFrame {
 
         lblValor.setText("jLabel1");
 
+        jLabel1.setText("Valor Total");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -269,6 +274,8 @@ public class FrameCompra extends javax.swing.JInternalFrame {
                 .addGap(48, 48, 48))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(45, 45, 45)
                 .addComponent(lblValor)
                 .addGap(79, 79, 79))
         );
@@ -313,7 +320,9 @@ public class FrameCompra extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblValor)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblValor)
+                    .addComponent(jLabel1))
                 .addContainerGap(8, Short.MAX_VALUE))
         );
 
@@ -343,11 +352,11 @@ public class FrameCompra extends javax.swing.JInternalFrame {
             "Sin Extra", "Chile", "Carne Molida"}));
         ComboBoxModel<String> descripcionBebida = new DefaultComboBoxModel((new String[]{
             "Coca-Cola", "Sprite", "Fanta"}));
-
+        
         String opcionProducto = cmbProducto.getSelectedItem().toString();
-
+        
         cmbTamanio.setSelectedIndex(-1);
-
+        
         if (opcionProducto.equals("Canguil")) {
             cmbTamanio.setModel(tamanioCanguil);
             cmbTamanio.setVisible(true);
@@ -365,7 +374,7 @@ public class FrameCompra extends javax.swing.JInternalFrame {
             btnAnadirProducto.setEnabled(true);
             this.imgProducto = new ImageIcon("src\\img\\popcorn.jpg");
             jLImagenProducto.setIcon(new ImageIcon(imgProducto.getImage().getScaledInstance(jLImagenProducto.getWidth(), jLImagenProducto.getHeight(), Image.SCALE_SMOOTH)));
-
+            
         } else if (opcionProducto.equals("Nacho")) {
             cmbTamanio.setModel(tamanioNachos);
             cmbTamanio.setVisible(true);
@@ -384,7 +393,7 @@ public class FrameCompra extends javax.swing.JInternalFrame {
             btnAnadirProducto.setEnabled(true);
             this.imgProducto = new ImageIcon("src\\img\\nachos.jpg");
             jLImagenProducto.setIcon(new ImageIcon(imgProducto.getImage().getScaledInstance(jLImagenProducto.getWidth(), jLImagenProducto.getHeight(), Image.SCALE_SMOOTH)));
-
+            
         } else if (opcionProducto.equals("HotDog")) {
             cmbTamanio.setModel(tamanioHotDog);
             cmbTamanio.setVisible(false);
@@ -403,7 +412,7 @@ public class FrameCompra extends javax.swing.JInternalFrame {
             btnAnadirProducto.setEnabled(true);
             this.imgProducto = new ImageIcon("src\\img\\hotdog.jpg");
             jLImagenProducto.setIcon(new ImageIcon(imgProducto.getImage().getScaledInstance(jLImagenProducto.getWidth(), jLImagenProducto.getHeight(), Image.SCALE_SMOOTH)));
-
+            
         } else if (opcionProducto.equals("Bebida")) {
             cmbTamanio.setModel(tamanioBebida);
             cmbTamanio.setVisible(true);
@@ -423,7 +432,7 @@ public class FrameCompra extends javax.swing.JInternalFrame {
             btnAnadirProducto.setEnabled(true);
             this.imgProducto = new ImageIcon("src\\img\\cocacolaaCine.jpg");
             jLImagenProducto.setIcon(new ImageIcon(imgProducto.getImage().getScaledInstance(jLImagenProducto.getWidth(), jLImagenProducto.getHeight(), Image.SCALE_SMOOTH)));
-
+            
         }
 
     }//GEN-LAST:event_cmbProductoItemStateChanged
@@ -446,7 +455,7 @@ public class FrameCompra extends javax.swing.JInternalFrame {
             String producto = cmbProducto.getSelectedItem().toString();
             String tamanio = cmbTamanio.getSelectedItem().toString();
             String extra = cmbDescripcion.getSelectedItem().toString();
-
+            
             Producto prodLista = new Nacho(tamanio);
             String extraTexto = "";
             precio = 0.0;
@@ -467,12 +476,12 @@ public class FrameCompra extends javax.swing.JInternalFrame {
                 Snack snack;
                 if (producto == "Nacho") {
                     snack = new Nacho(tamanio);
-
+                    
                 } else {
                     snack = new HotDog();
-
+                    
                 }
-
+                
                 if (cmbDescripcion.getSelectedIndex() != 0) {
                     if (extra == "Chile") {
                         prodLista = new Chile(snack);
@@ -489,17 +498,17 @@ public class FrameCompra extends javax.swing.JInternalFrame {
                 }
             }
             principal.productos.add(prodLista);
-
+            
             setDatos(prodLista, extraTexto);
-
+            
         } else {
             JOptionPane.showMessageDialog(rootPane, "No se puede agregar"
                     + " el producto\nPor favor, ingrese una cantidad válida",
                     "Error", WIDTH, frameIcon);
         }
-
+        
         lblNumeroCantidad.setText(String.valueOf(0));
-
+        lblValor.setVisible(true);
         lblValor.setText("$ " + String.valueOf(precioFinal));
 
     }//GEN-LAST:event_btnAnadirProductoActionPerformed
@@ -526,9 +535,9 @@ public class FrameCompra extends javax.swing.JInternalFrame {
             "Normal", "Grande"}));
         ComboBoxModel<String> tipoBotella = new DefaultComboBoxModel((new String[]{
             "Normal"}));
-
+        
         String tipo = cmbTipoBebida.getSelectedItem().toString();
-
+        
         if (tipo.equals("Vaso")) {
             cmbTamanio.setModel(tipoVaso);
             cmbTamanio.setVisible(true);
@@ -549,7 +558,7 @@ public class FrameCompra extends javax.swing.JInternalFrame {
         //cmbAnio.setSelectedIndex(0);
         //txtISBNReservacion.setText(null);
     }
-
+    
     void CentrarVentana(JInternalFrame frame) {
         cerrarVentanas();
         Dimension dimension = this.getSize();
@@ -557,10 +566,10 @@ public class FrameCompra extends javax.swing.JInternalFrame {
         frame.setLocation((dimension.width - Dframe.width) / 2, (dimension.height - Dframe.height) / 2);
         frame.show();
     }
-
+    
     void cerrarVentanas() {
     }
-
+    
     private void setModel() {
         String[] cabecera = {"Cantidad", "Producto", "Precio Unidad", "P.V.P."};
         tableProductos.setColumnIdentifiers(cabecera);
@@ -590,15 +599,15 @@ public class FrameCompra extends javax.swing.JInternalFrame {
         } else {
             datos[1] = producto + " " + extra;
         }
-
+        
         datos[2] = p.getPrecio();
         datos[3] = Double.parseDouble(lblNumeroCantidad.getText()) * p.getPrecio();
         precioProductos = Double.parseDouble(lblNumeroCantidad.getText()) * p.getPrecio();
-
+        
         tableProductos.addRow(datos);
-
+        
         jTableTotal.setModel(tableProductos);
-
+        
         precioFinal = precioFinal + precioProductos;
     }
 
@@ -613,6 +622,7 @@ public class FrameCompra extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> cmbTamanio;
     private javax.swing.JComboBox<String> cmbTipoBebida;
     private javax.swing.JLabel jLImagenProducto;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
