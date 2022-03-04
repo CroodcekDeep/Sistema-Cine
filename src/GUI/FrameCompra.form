@@ -237,11 +237,12 @@
     <Component class="javax.swing.JComboBox" name="cmbProducto">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
+          <StringArray count="5">
             <StringItem index="0" value="Canguil"/>
             <StringItem index="1" value="Nacho"/>
             <StringItem index="2" value="HotDog"/>
             <StringItem index="3" value="Bebida"/>
+            <StringItem index="4" value="Papi Pollo"/>
           </StringArray>
         </Property>
         <Property name="selectedIndex" type="int" value="-1"/>
