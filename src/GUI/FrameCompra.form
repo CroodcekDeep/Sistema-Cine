@@ -43,23 +43,13 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-<<<<<<< HEAD
-              <EmptySpace min="0" pref="47" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-=======
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              <Component id="lblTituloCompra" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="236" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" attributes="0">
-              <EmptySpace min="0" pref="95" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
->>>>>>> origin/kevDev
                   <Group type="102" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Component id="jScrollPane2" min="-2" pref="529" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
+                      <EmptySpace min="0" pref="86" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" attributes="0">
                               <Component id="btnAnadirProducto" min="-2" max="-2" attributes="0"/>
@@ -68,106 +58,50 @@
                           </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< HEAD
-                                  <Component id="lblTamanio" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblTipoProducto" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblCantidad" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblDescripcion" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace pref="58" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="cmbDescripcion" alignment="1" min="-2" pref="167" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="btnCantidadMenos" min="-2" pref="40" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                                      <Component id="lblNumeroCantidad" min="-2" pref="11" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Component id="lblTipoBebida" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="btnCantidadMas" min="-2" pref="40" max="-2" attributes="0"/>
+                                      <Component id="cmbTipoBebida" min="-2" pref="167" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="cmbTamanio" alignment="1" min="-2" pref="167" max="-2" attributes="0"/>
-                                  <Component id="cmbProducto" alignment="1" min="-2" pref="167" max="-2" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <Component id="txtProductos" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                                              <Component id="txtTamanio" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-=======
-                                  <Group type="102" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="lblTamanio" min="-2" max="-2" attributes="0"/>
                                           <Component id="lblTipoProducto" min="-2" max="-2" attributes="0"/>
                                           <Component id="lblCantidad" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="lblDescripcion" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
+                                      <EmptySpace pref="96" max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="103" alignment="1" groupAlignment="1" max="-2" attributes="0">
-                                              <Component id="cmbDescripcion" min="-2" pref="167" max="-2" attributes="0"/>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="btnCantidadMenos" min="-2" pref="40" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                                                  <Component id="lblNumeroCantidad" min="-2" pref="11" max="-2" attributes="0"/>
-                                                  <EmptySpace max="32767" attributes="0"/>
-                                                  <Component id="btnCantidadMas" min="-2" pref="40" max="-2" attributes="0"/>
+                                          <Component id="lblTituloCompra" min="-2" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="103" alignment="1" groupAlignment="1" max="-2" attributes="0">
+                                                  <Component id="cmbDescripcion" min="-2" pref="167" max="-2" attributes="0"/>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Component id="btnCantidadMenos" min="-2" pref="40" max="-2" attributes="0"/>
+                                                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                                                      <Component id="lblNumeroCantidad" min="-2" pref="11" max="-2" attributes="0"/>
+                                                      <EmptySpace max="32767" attributes="0"/>
+                                                      <Component id="btnCantidadMas" min="-2" pref="40" max="-2" attributes="0"/>
+                                                  </Group>
                                               </Group>
+                                              <Component id="cmbTamanio" alignment="1" min="-2" pref="167" max="-2" attributes="0"/>
+                                              <Component id="cmbProducto" alignment="1" min="-2" pref="167" max="-2" attributes="0"/>
                                           </Group>
-                                          <Component id="cmbTamanio" alignment="1" min="-2" pref="167" max="-2" attributes="0"/>
-                                          <Component id="cmbProducto" alignment="1" min="-2" pref="167" max="-2" attributes="0"/>
                                       </Group>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="lblTipoBebida" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="cmbTipoBebida" min="-2" pref="167" max="-2" attributes="0"/>
->>>>>>> origin/kevDev
                                   </Group>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="0" pref="51" max="32767" attributes="0"/>
-                              <Component id="txaMostrar" min="-2" pref="453" max="-2" attributes="0"/>
-                          </Group>
                       </Group>
-<<<<<<< HEAD
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-=======
-                      <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
->>>>>>> origin/kevDev
                   </Group>
               </Group>
+              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="lblTituloCompra" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="236" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="txaMostrar" min="-2" pref="101" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="400" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
+              <Component id="lblValor" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -220,28 +154,11 @@
                   <Component id="btnGenerarFactura" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnAnadirProducto" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-<<<<<<< HEAD
-              <EmptySpace pref="35" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtProductos" alignment="3" max="32767" attributes="0"/>
-                      <Component id="txtTamanio" alignment="3" max="32767" attributes="0"/>
-                  </Group>
-                  <Component id="txaMostrar" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-=======
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="txaMostrar" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jScrollPane2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
->>>>>>> origin/kevDev
+              <Component id="jScrollPane2" min="-2" pref="185" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="lblValor" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="8" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -305,28 +222,13 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Generar Factura"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Cursor de Mano"/>
+          <Color id="Default Cursor"/>
         </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGenerarFacturaActionPerformed"/>
       </Events>
     </Component>
-    <Container class="javax.swing.JScrollPane" name="txaMostrar">
-      <AuxValues>
-        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-      </AuxValues>
-
-      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-      <SubComponents>
-        <Component class="javax.swing.JTextArea" name="txaProductos">
-          <Properties>
-            <Property name="columns" type="int" value="20"/>
-            <Property name="rows" type="int" value="5"/>
-          </Properties>
-        </Component>
-      </SubComponents>
-    </Container>
     <Component class="javax.swing.JComboBox" name="cmbProducto">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
@@ -339,7 +241,7 @@
         </Property>
         <Property name="selectedIndex" type="int" value="-1"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Cursor de Mano"/>
+          <Color id="Default Cursor"/>
         </Property>
       </Properties>
       <Events>
@@ -355,7 +257,7 @@
           <StringArray count="0"/>
         </Property>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Cursor de Mano"/>
+          <Color id="Default Cursor"/>
         </Property>
       </Properties>
       <Events>
@@ -381,7 +283,7 @@
         </Property>
         <Property name="text" type="java.lang.String" value="+"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Cursor de Mano"/>
+          <Color id="Default Cursor"/>
         </Property>
       </Properties>
       <Events>
@@ -395,7 +297,7 @@
         </Property>
         <Property name="text" type="java.lang.String" value="-"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Cursor de Mano"/>
+          <Color id="Default Cursor"/>
         </Property>
       </Properties>
       <Events>
@@ -423,7 +325,7 @@
           <StringArray count="0"/>
         </Property>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Cursor de Mano"/>
+          <Color id="Default Cursor"/>
         </Property>
       </Properties>
     </Component>
@@ -441,7 +343,7 @@
           </StringArray>
         </Property>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Cursor de Mano"/>
+          <Color id="Default Cursor"/>
         </Property>
       </Properties>
       <Events>
@@ -451,27 +353,6 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-<<<<<<< HEAD
-    <Component class="javax.swing.JTextField" name="txtProductos">
-      <Properties>
-        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Text Cursor"/>
-        </Property>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel1"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel2">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel1"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtTamanio">
-    </Component>
-=======
     <Container class="javax.swing.JScrollPane" name="jScrollPane2">
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
@@ -515,6 +396,10 @@
         </Component>
       </SubComponents>
     </Container>
->>>>>>> origin/kevDev
+    <Component class="javax.swing.JLabel" name="lblValor">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jLabel1"/>
+      </Properties>
+    </Component>
   </SubComponents>
 </Form>

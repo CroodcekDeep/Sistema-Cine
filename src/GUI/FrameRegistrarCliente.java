@@ -5,25 +5,28 @@
  */
 package GUI;
 
+import static GUI.FrameCompra.principal;
 import Registro.Cliente;
-import Registro.Factura;
-import com.sun.security.ntlm.Client;
+import javax.swing.JOptionPane;
 
-public
-        class FrameRegistrarCliente extends javax.swing.JInternalFrame {
-    
-    static
-            Principal principal;
-    
-    public
-            FrameRegistrarCliente() {
+//import com.sun.security.ntlm.Client;
+public class FrameRegistrarCliente extends javax.swing.JInternalFrame {
+
+    String nombreCompleto;
+    String ci;
+    String direccion;
+    String telefono;
+    static Principal principal;
+
+    public FrameRegistrarCliente() {
         initComponents();
+
     }
-    
-    public
-            FrameRegistrarCliente(Principal principal) {
+
+    public FrameRegistrarCliente(Principal principal) {
         this.principal = principal;
         initComponents();
+
     }
 
     /**
@@ -202,11 +205,12 @@ public
     private void btnRegistrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarClienteActionPerformed
         String nombre = this.txtNombreCliente.getText();
         String apellido = this.txtApellidoCliente.getText();
-        String ci = this.txtCICliente.getText();
-        String direccion = this.txtDireccionCliente.getText();
-        String telefono = this.txtTelefonoCliente.getText();
+        ci = this.txtCICliente.getText();
+        direccion = this.txtDireccionCliente.getText();
+        telefono = this.txtTelefonoCliente.getText();
         Cliente cliente = new Cliente(nombre, apellido, ci, direccion, telefono);
         txaMostrarClienteRegistro.setText(cliente.toString());
+        nombreCompleto = txtNombreCliente.getText() + " " + txtApellidoCliente.getText();
 
         /* //Se valida que los campos no estén vacíos y que la cédula sea válida
         if (!txtNombreCliente.getText().isEmpty()
@@ -265,14 +269,15 @@ public
     }//GEN-LAST:event_btnRegistrarClienteActionPerformed
 
     private void btonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btonAceptarActionPerformed
-        principal.CentrarVentana(principal.generarFacturas);
-        principal.generarFacturas.setVisible(true);
+        
+           principal.factura.mostrarDatos();
+                   principal.CentrarVentana(principal.factura);
+        principal.factura.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btonAceptarActionPerformed
 
     //Método para limpiar todos los campos
-    public
-            void limpiarCasillas() {
+    public void limpiarCasillas() {
         txtApellidoCliente.setText(null);
         txtNombreCliente.setText(null);
         txtCICliente.setText(null);
@@ -281,8 +286,7 @@ public
     }
 
     //Método para limpiar el área de texto
-    public
-            void limpiarAreaDeTexto() {
+    public void limpiarAreaDeTexto() {
         txaMostrarClienteRegistro.setText(null);
     }
 

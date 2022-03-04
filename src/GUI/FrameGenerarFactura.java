@@ -5,22 +5,40 @@
  */
 package GUI;
 
+import Registro.Cliente;
+import Registro.Factura;
+
 /**
  *
  * @author danie
  */
 public class FrameGenerarFactura extends javax.swing.JInternalFrame {
+
     static Principal principal;
+    Cliente cliente = new Cliente();
+
     /**
      * Creates new form FrameRegistrarVenta
      */
     public FrameGenerarFactura() {
         initComponents();
+        lblNombreCliente.setText("");
+        lblCedula.setText("");
+        lblDireccion.setText("");
+        lblTelefono.setText("");
     }
-    
+
     public FrameGenerarFactura(Principal principal) {
         this.principal = principal;
         initComponents();
+    }
+
+    public void mostrarDatos() {
+        lblNombreCliente.setText(principal.registrarCliente.nombreCompleto);
+        lblCedula.setText(principal.registrarCliente.ci);
+        lblDireccion.setText(principal.registrarCliente.direccion);
+        lblTelefono.setText(principal.registrarCliente.telefono);
+        lblPrecioFinal.setText(String.valueOf(principal.compra.precioFinal));
     }
 
     /**
@@ -32,227 +50,151 @@ public class FrameGenerarFactura extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         lblGenerarFactura = new javax.swing.JLabel();
-        txtTituloLibro = new javax.swing.JTextField();
-        txtEdicionLibro = new javax.swing.JTextField();
-        txtISBNLibro = new javax.swing.JTextField();
-        txtAutorLibro = new javax.swing.JTextField();
-        txtNumPaginasLibro = new javax.swing.JTextField();
-        lblRuc = new javax.swing.JLabel();
-        btnAgregar = new javax.swing.JButton();
-        lblNombresCliente = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        txaMostrarRegistroLibro = new javax.swing.JTextArea();
-        jLabel1 = new javax.swing.JLabel();
+        lblNombreEmpresa = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-
-        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/menu (1).png"))); // NOI18N
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(54, Short.MAX_VALUE)
-                .addComponent(jLabel5)
-                .addGap(52, 52, 52))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(jLabel5)
-                .addContainerGap(41, Short.MAX_VALUE))
-        );
-
-        jLabel3.setText("Número de Páginas");
+        lblCine = new javax.swing.JLabel();
+        lblRuc2 = new javax.swing.JLabel();
+        lblRuc = new javax.swing.JLabel();
+        lblNombreCliente = new javax.swing.JLabel();
+        lblCedula = new javax.swing.JLabel();
+        lblDireccion = new javax.swing.JLabel();
+        lblTelefono = new javax.swing.JLabel();
+        Cedula = new javax.swing.JLabel();
+        Cedula1 = new javax.swing.JLabel();
+        Cedula2 = new javax.swing.JLabel();
+        Cedula3 = new javax.swing.JLabel();
+        lblPrecioFinal = new javax.swing.JLabel();
 
         lblGenerarFactura.setFont(new java.awt.Font("Calibri Light", 1, 18)); // NOI18N
-        lblGenerarFactura.setText("GENERAR FACTURA");
+        lblGenerarFactura.setText("FACTURA");
+
+        lblNombreEmpresa.setText("Empresa");
+
+        jLabel2.setText("Cliente");
+
+        lblCine.setText("Star Cines");
+
+        lblRuc2.setText("1768156470004");
 
         lblRuc.setText("RUC");
 
-        btnAgregar.setText("Registrar");
-        btnAgregar.setToolTipText("");
-        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgregarActionPerformed(evt);
-            }
-        });
+        lblNombreCliente.setText("jLabel4");
 
-        lblNombresCliente.setText("Edición");
+        lblCedula.setText("jLabel5");
 
-        txaMostrarRegistroLibro.setColumns(20);
-        txaMostrarRegistroLibro.setRows(5);
-        jScrollPane1.setViewportView(txaMostrarRegistroLibro);
+        lblDireccion.setText("jLabel6");
 
-        jLabel1.setText("ISBN");
+        lblTelefono.setText("jLabel7");
 
-        jLabel2.setText("Autor");
+        Cedula.setText("Cedula");
+
+        Cedula1.setText("Direccion");
+
+        Cedula2.setText("Telefono");
+
+        Cedula3.setText("Precio Final");
+
+        lblPrecioFinal.setText("jLabel8");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(53, 53, 53)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(68, 68, 68)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 528, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblNombreEmpresa)
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(lblRuc))
+                            .addComponent(jLabel2)
+                            .addComponent(Cedula)
+                            .addComponent(Cedula1)
+                            .addComponent(Cedula2))
+                        .addGap(59, 59, 59)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(32, 32, 32)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(lblNombresCliente)
-                                        .addComponent(lblRuc, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING))
-                                    .addComponent(jLabel3))
-                                .addGap(31, 31, 31)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtTituloLibro)
-                                    .addComponent(txtEdicionLibro)
-                                    .addComponent(txtISBNLibro)
-                                    .addComponent(txtAutorLibro)
-                                    .addComponent(txtNumPaginasLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblRuc2)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(78, 78, 78)
-                                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btnAgregar)
-                                        .addGap(32, 32, 32))))))
+                                        .addGap(17, 17, 17)
+                                        .addComponent(lblCine))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(49, 49, 49)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblCedula)
+                                    .addComponent(lblNombreCliente)
+                                    .addComponent(lblDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblTelefono)
+                                    .addComponent(lblPrecioFinal))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(239, 239, 239)
-                        .addComponent(lblGenerarFactura, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(60, Short.MAX_VALUE))
+                        .addComponent(Cedula3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblGenerarFactura, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(74, 74, 74)))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblGenerarFactura)
-                        .addGap(9, 9, 9)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblRuc)
-                                    .addComponent(txtTituloLibro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblNombresCliente)
-                                    .addComponent(txtEdicionLibro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txtISBNLibro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel1)))
-                            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtAutorLibro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(txtNumPaginasLibro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(178, 178, 178)
-                        .addComponent(btnAgregar)))
-                .addGap(0, 41, Short.MAX_VALUE))
+                .addComponent(lblGenerarFactura)
+                .addGap(9, 9, 9)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNombreEmpresa)
+                    .addComponent(lblCine))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblRuc)
+                    .addComponent(lblRuc2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(lblNombreCliente))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCedula)
+                    .addComponent(Cedula))
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDireccion)
+                    .addComponent(Cedula1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTelefono)
+                    .addComponent(Cedula2))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Cedula3)
+                    .addComponent(lblPrecioFinal))
+                .addGap(0, 36, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        //Se valida que los campos no estén vacíos y que el ISBN tenga la longitud correcta
-        if (!txtTituloLibro.getText().isEmpty()
-                && !txtISBNLibro.getText().isEmpty()
-                && !txtAutorLibro.getText().isEmpty()
-                && !txtEdicionLibro.getText().isEmpty()
-                && !txtNumPaginasLibro.getText().isEmpty()){
-            
-            if (txtISBNLibro.getText().length() != 13){
-                txaMostrarRegistroLibro.setText("Error. En el campo ISBN debe ingresarse"
-                    + " un ISBN de 13 dígitos.\nPor favor, ingrese un ISBN válido.");
-            }
-            else {
-                StringBuilder auxIsbn = new StringBuilder(txtISBNLibro.getText());
-                boolean aux = true;
-                for (int i = 0; i<auxIsbn.length();i++){
-                    aux &= Character.isDigit(auxIsbn.charAt(i));
-                }
-                
-                if (aux){
-//                    if (principal.libros.estaRegistrado(txtISBNLibro.getText())){
-//                        txaMostrarRegistroLibro.setText("Ya existe un libro con el isbn indicado."
-//                                + "\nPor favor, ingrese otro isbn.");
-//                    }
-//                    else {
-//                        Libro libro1 = new Libro();
-//                        libro1.setTitulo(txtTituloLibro.getText());
-//                        libro1.setISBN(txtISBNLibro.getText());
-//                        libro1.setAutor(txtAutorLibro.getText());
-//                        libro1.setEdicion(txtEdicionLibro.getText());
-//                        libro1.setNumPaginas(Integer.parseInt(txtNumPaginasLibro.getText()));
-//
-//                        principal.libros.ingresarLibro(libro1);
-//                        txaMostrarRegistroLibro.setText("¡Se ha ingresado el libro!\n" + libro1.toString());
-//
-//                        limpiarCasillas();
-//                    }
-                }
-                else{
-                    txaMostrarRegistroLibro.setText("Error. Se ha ingresado un ISBN incorrecto."
-                    + "\nPor favor, ingrese un ISBN compuesto solamente por dígitos.");
-                }
-            }
-        }
-        else {
-            txaMostrarRegistroLibro.setText("No se ha ingresado información suficiente"
-                    + " para realizar el registro.\nPor favor, llene todos los campos");
-        }
-    }//GEN-LAST:event_btnAgregarActionPerformed
-
-    //Método para limpiar todos los campos
-    public void limpiarCasillas(){
-        txtAutorLibro.setText(null);
-        txtEdicionLibro.setText(null);
-        txtISBNLibro.setText(null);
-        txtNumPaginasLibro.setText(null);
-        txtTituloLibro.setText(null);
-    }
-    
-    //Método para limpiar el área de texto
-    public void limpiarAreaDeTexto(){
-        txaMostrarRegistroLibro.setText(null);
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAgregar;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel Cedula;
+    private javax.swing.JLabel Cedula1;
+    private javax.swing.JLabel Cedula2;
+    private javax.swing.JLabel Cedula3;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblCedula;
+    private javax.swing.JLabel lblCine;
+    private javax.swing.JLabel lblDireccion;
     private javax.swing.JLabel lblGenerarFactura;
-    private javax.swing.JLabel lblNombresCliente;
+    private javax.swing.JLabel lblNombreCliente;
+    private javax.swing.JLabel lblNombreEmpresa;
+    private javax.swing.JLabel lblPrecioFinal;
     private javax.swing.JLabel lblRuc;
-    private javax.swing.JTextArea txaMostrarRegistroLibro;
-    private javax.swing.JTextField txtAutorLibro;
-    private javax.swing.JTextField txtEdicionLibro;
-    private javax.swing.JTextField txtISBNLibro;
-    private javax.swing.JTextField txtNumPaginasLibro;
-    private javax.swing.JTextField txtTituloLibro;
+    private javax.swing.JLabel lblRuc2;
+    private javax.swing.JLabel lblTelefono;
     // End of variables declaration//GEN-END:variables
 }
