@@ -30,27 +30,6 @@ class Cliente {
     '+setTelf()
 }
 
-class Empleado{
-    -id: int
-    -nombres: String
-    -apellidos: String
-    -cédula: String
-    -dirección: String
-    -telf: String
-    '+getId()
-    '+setId()
-    '+getNombres()
-    '+setNombres()
-    '+getApellidos()
-    '+setApellidos()
-    '+getCédula()
-    '+setCédula()
-    '+getDirección()
-    '+setDirección()
-    '+getTelf()
-    '+setTelf()
-}
-
 class Factura{
     -nombreEmpresa: String
     -ruc: String
