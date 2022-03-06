@@ -7,18 +7,20 @@ import java.util.ArrayList;
 public class Orden {
 
     private Cliente cliente;
-    private ArrayList<Producto> productos = new ArrayList<>();
+    private ArrayList<DetalleOrden> detallesOrden = new ArrayList<>();
 
     public Orden(Cliente cliente) {
         this.cliente = cliente;
     }
 
-    public ArrayList<Producto> getProductos() {
-        return productos;
+    public Orden(){}
+
+    public ArrayList<DetalleOrden> getDetallesOrden() {
+        return detallesOrden;
     }
 
-    public void setProductos(ArrayList<Producto> productos) {
-        this.productos = productos;
+    public void setDetallesOrden(ArrayList<DetalleOrden> detallesOrden) {
+        this.detallesOrden = detallesOrden;
     }
 
     public Cliente getCliente() {
@@ -29,14 +31,18 @@ public class Orden {
         this.cliente = cliente;
     }
 
-    public void anadirProducto(Producto producto) {
-        this.productos.add(producto);
+//    public void anadirProducto(Producto producto) {
+//        this.productos.add(producto);
+//    }
+    
+    public void anadirDetalleOrden(DetalleOrden detalle) {
+        this.detallesOrden.add(detalle);
     }
 
     public double calcularTotal() {
         double total = 0;
-        for (Producto p : productos) {
-            total += p.getPrecio();
+        for (DetalleOrden d: detallesOrden) {
+            total += d.pvp;
         }
         return total;
     }
@@ -44,6 +50,6 @@ public class Orden {
     @Override
     public String toString() {
         return "\n\tCliente: " + cliente
-                + "\n\tProductos: " + productos + "\n";
+                + "\n\tDetalles: " + detallesOrden + "\n";
     }
 }

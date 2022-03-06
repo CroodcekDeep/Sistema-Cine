@@ -14,7 +14,7 @@ public class Factura {
     public Factura(Orden orden) {
         DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy/MM/dd hh:mm:ss a");
         fecha = LocalDateTime.now().format(df);
-        this.total = orden.calcularTotal();
+        //this.total = orden.calcularTotal();
         this.orden = orden;
     }
 
