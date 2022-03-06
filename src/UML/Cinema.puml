@@ -1,69 +1,66 @@
 @startuml
 'https://plantuml.com/class-diagram
 
-abstract class RegistroVenta{
-    -ordenes: DoublyLinkedList<Orden>
-    -historialRegistro: HashMap<Integer, Factura>
-
-    +getHistorialRegistro(): HashMap<Integer, Factura>
-    +setHistorialRegistro(HashMap<Integer, Factura> historialRegistro)
-    +addOrden(Orden orden)
-    +getOrdenes(): DoublyLinkedList<Orden>
-    +searchByName(String flag): Cliente
-}
-
 class Cliente {
     -nombres: String
     -apellidos: String
-    -cédula: String
-    -dirección: String
+    -cedula: String
+    -direccion: String
     -telf: String
-    '+getNombres()
-    '+setNombres()
-    '+getApellidos()
-    '+setApellidos()
-    '+getCédula()
-    '+setCédula()
-    '+getDirección()
-    '+setDirección()
-    '+getTelf()
-    '+setTelf()
-}
-
-class Empleado{
-    -id: int
-    -nombres: String
-    -apellidos: String
-    -cédula: String
-    -dirección: String
-    -telf: String
-    '+getId()
-    '+setId()
-    '+getNombres()
-    '+setNombres()
-    '+getApellidos()
-    '+setApellidos()
-    '+getCédula()
-    '+setCédula()
-    '+getDirección()
-    '+setDirección()
-    '+getTelf()
-    '+setTelf()
+    '+Cliente(nombres: String, apellidos: String, cedula: String, direccion: String, telefono: String)
+    '+getNombres(): String
+    '+setNombres(nombres: String)
+    '+getApellidos(): String
+    '+setApellidos(apellidos: String)
+    '+getCédula(): String
+    '+setCédula(cedula: String)
+    '+getDirección(): String
+    '+setDirección(direccion: String)
+    '+getTelf(): String
+    '+setTelf(telf: String)
+    'toString(): String
 }
 
 class Factura{
-    -nombreEmpresa: String
-    -ruc: String
+    -nombreEmpresa: String = "Star Cines"
+    -ruc: String = "1768156470004"
     -fecha: String
     -total: double
+    -orden: Orden
+    '+Factura(orden: Orden)
+    '+getFecha(): String
+    '+setFecha(fecha: String)
+    '+getTotal(): double
+    '+setTotal(total: double)
+    '+getRuc(): String
+    '+setRuc(ruc: String)
+    '+getOrden(): Orden
+    '+setOrden(orden: Orden)
+    '+getNombreEmpresa(): String
+    '+setNombreEmpresa(nombreEmpresa: String)
+    '+toString(): String
 }
 
 class Orden {
     -cliente: Cliente
-    -productos: ArrayList<Producto>
+    -detallesOrden: ArrayList<DetalleOrden>
+    '+Orden(cliente: Cliente)
+    '+getDetallesOrden(): ArrayList<DetalleOrden>
+    '+setDetallesOrden(detallesOrden: ArrayList<DetalleOrden>)
+    '+getCliente(): Cliente
+    '+setCliente(cliente: Cliente)
+    +añadirDetalleOrden(detalle: DetalleOrden)
+    +calcularTotal(): double
+    '+toString(): String
+}
 
-    +añadirProducto(producto: Producto)
-    +calcularTotal()
+class DetalleOrden {
+    -cantidad: int
+    -producto: String
+    -precioUnit: double
+    -pvp: double
+    +DetalleOrden(cantidad: int, producto: String, precioUnit: double, pvp: double)
+    '+toString(): String
 }
 
 ' Comprar Comida
@@ -73,18 +70,19 @@ abstract class Producto{
     #tamaño: String
 
     +getNombre(): String
-    +setNombre()
+    +setNombre(nombre: String)
     +getTamaño(): String
-    +setTamaño()
+    +setTamaño(tamanio: String)
     +getPrecio(): double {abstract}
-    +setPrecio()
+    +setPrecio(precio: double)
+    '+toString(): String
 }
 
 abstract class Bebida{
     #sabor: String
 
-    +getSabor()
-    +setSabor()
+    +getSabor(): String
+    +setSabor(sabor: String)
 }
 
 abstract class Snack {
@@ -94,22 +92,49 @@ abstract class Snack {
 abstract class Extra{
     #snack: Snack
     #descripción: String
+
+    '+toString(): String
 }
 
 class Canguil{
-    '+precio(): double
+    +Canguil(tamanio: String)
+    +getPrecio(): double
 }
 
 class Nacho{
-    '+precio(): double
+    +Nacho(tamanio: String)
+    +getPrecio(): double
 }
 
 class HotDog{
-    '+precio(): double
+    '+HotDog()
+    +getPrecio(): double
+}
+
+class Vaso {
+    '+Vaso(tamanio: String, sabor: String)
+    +getPrecio(): double
+    '+toString(): String
+}
+
+class Botella {
+    '+Botella(sabor: String)
+    +getPrecio(): double
+    '+toString(): String
+}
+
+class CarneMolida {
+    '+CarneMolida(snack: Snack)
+    +getPrecio(): double
+}
+
+class Chile {
+    '+Chile(snack: Snack)
+    +getPrecio(): double
 }
 
 ' Patrón de Diseño -> Decorator
-Orden o- Producto: contiene
+Orden "1" o- "*" DetalleOrden: contiene
 
 Factura "1"->"1" Orden: tiene
 
@@ -127,8 +152,7 @@ Extra <|-- Chile
 Bebida <|-- Vaso
 Bebida <|-- Botella
 
-Orden "1"-->"1" Cliente: tiene
-RegistroVenta "1"-->"1..*" Orden: guarda
-RegistroVenta "1"-->"1..*" Factura: guarda
+DetalleOrden <.. Producto
 
+Orden "1"-->"1" Cliente: tiene
 @enduml
