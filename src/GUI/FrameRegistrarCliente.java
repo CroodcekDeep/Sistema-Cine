@@ -5,11 +5,9 @@
  */
 package GUI;
 
-import static GUI.FrameCompra.principal;
 import Registro.Cliente;
-import javax.swing.JOptionPane;
+import Registro.Factura;
 
-//import com.sun.security.ntlm.Client;
 public class FrameRegistrarCliente extends javax.swing.JInternalFrame {
 
     String nombreCompleto;
@@ -20,13 +18,11 @@ public class FrameRegistrarCliente extends javax.swing.JInternalFrame {
 
     public FrameRegistrarCliente() {
         initComponents();
-
     }
 
     public FrameRegistrarCliente(Principal principal) {
         this.principal = principal;
         initComponents();
-
     }
 
     /**
@@ -54,7 +50,7 @@ public class FrameRegistrarCliente extends javax.swing.JInternalFrame {
         panelMostrarClienteRegistro = new javax.swing.JScrollPane();
         txaMostrarClienteRegistro = new javax.swing.JTextArea();
         btnRegistrarCliente = new javax.swing.JButton();
-        btonAceptar = new javax.swing.JButton();
+        btnAceptar = new javax.swing.JButton();
 
         jLabel1.setText("Nombres");
 
@@ -112,10 +108,10 @@ public class FrameRegistrarCliente extends javax.swing.JInternalFrame {
             }
         });
 
-        btonAceptar.setText("REGISTRAR");
-        btonAceptar.addActionListener(new java.awt.event.ActionListener() {
+        btnAceptar.setText("REGISTRAR");
+        btnAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btonAceptarActionPerformed(evt);
+                btnAceptarActionPerformed(evt);
             }
         });
 
@@ -151,7 +147,7 @@ public class FrameRegistrarCliente extends javax.swing.JInternalFrame {
                         .addGap(43, 43, 43)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btonAceptar)))
+                            .addComponent(btnAceptar)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(37, 37, 37)
                         .addComponent(panelMostrarClienteRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -193,7 +189,7 @@ public class FrameRegistrarCliente extends javax.swing.JInternalFrame {
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnRegistrarCliente)
-                    .addComponent(btonAceptar))
+                    .addComponent(btnAceptar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelMostrarClienteRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(42, Short.MAX_VALUE))
@@ -208,73 +204,19 @@ public class FrameRegistrarCliente extends javax.swing.JInternalFrame {
         ci = this.txtCICliente.getText();
         direccion = this.txtDireccionCliente.getText();
         telefono = this.txtTelefonoCliente.getText();
-        Cliente cliente = new Cliente(nombre, apellido, ci, direccion, telefono);
-        txaMostrarClienteRegistro.setText(cliente.toString());
+        principal.clienteActual = new Cliente(nombre, apellido, ci, direccion, telefono);
+        txaMostrarClienteRegistro.setText(principal.clienteActual.toString());
         nombreCompleto = txtNombreCliente.getText() + " " + txtApellidoCliente.getText();
-
-        /* //Se valida que los campos no estén vacíos y que la cédula sea válida
-        if (!txtNombreCliente.getText().isEmpty()
-                && !txtApellidoCliente.getText().isEmpty()
-                && !txtCICliente.getText().isEmpty()
-                && !txtDireccionCliente.getText().isEmpty()
-                && !txtTelefonoCliente.getText().isEmpty()){
-            StringBuilder auxCI = new StringBuilder(txtCICliente.getText());
-            boolean aux = true;
-            for (int i = 0; i<auxCI.length();i++){
-                aux &= Character.isDigit(auxCI.charAt(i));
-            }
-            
-//            if (aux){
-//                if (Cliente.esCedulaValida(txtCICliente.getText())){
-//                    if (principal.clientes.estaRegistrado(txtCICliente.getText())){
-//                        txaMostrarClienteRegistro.setText("Ya existe un cliente con la cédula indicada."
-//                                + "\nPor favor ingrese otra cédula.");
-//                    }
-//                    else {
-//                        if (Cliente.esNombreApellidoValido(txtNombreCliente.getText())
-//                                && Cliente.esNombreApellidoValido(txtApellidoCliente.getText())){
-//                            Cliente cliente1 = new Cliente();
-//                            cliente1.setNombres(txtNombreCliente.getText());
-//                            cliente1.setApellidos(txtApellidoCliente.getText());
-//                            cliente1.setDireccion(txtDireccionCliente.getText());
-//                            cliente1.setCedula(txtCICliente.getText());
-//                            cliente1.setTelefono(txtTelefonoCliente.getText());
-//
-//                            NodoCliente nuevoNodoCliente = new NodoCliente(cliente1);
-//                            principal.clientes.ingresarNodo(nuevoNodoCliente);
-//                            txaMostrarClienteRegistro.setText("¡Cliente ingresado!\n" + cliente1.toString());
-//
-//                            limpiarCasillas(); 
-//                        }
-//                        else {
-//                            txaMostrarClienteRegistro.setText("Error al ingresar el nombre o apellido."
-//                                    + "\nPor favor ingrese nombres y apellido válidos.");
-//                        }
-//                    } 
-//                }
-//                else {
-//                    txaMostrarClienteRegistro.setText("Error. Se ha ingresado un valor de cédula"
-//                            + " inválido.\nPor favor, ingrese una cédula válida.");
-//                }
-//            }
-//            else {
-//                txaMostrarClienteRegistro.setText("Error. En el campo \"Cédula\" debe ingresarse"
-//                        + " una cédula de 10 dígitos.\nPor favor, ingrese una cédula válida.");
-//            }  
-        }
-        else {
-            txaMostrarClienteRegistro.setText("No se ha ingresado información suficiente"
-                    + " para realizar el registro.\nPor favor, llene todos los campos");
-        }*/
     }//GEN-LAST:event_btnRegistrarClienteActionPerformed
 
-    private void btonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btonAceptarActionPerformed
+    private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
+        principal.facturaActual = new Factura(principal.ordenActual);
         
-           principal.factura.mostrarDatos();
-                   principal.CentrarVentana(principal.factura);
+        principal.factura.mostrarDatos();
+        principal.centrarVentana(principal.factura);
         principal.factura.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_btonAceptarActionPerformed
+    }//GEN-LAST:event_btnAceptarActionPerformed
 
     //Método para limpiar todos los campos
     public void limpiarCasillas() {
@@ -283,16 +225,13 @@ public class FrameRegistrarCliente extends javax.swing.JInternalFrame {
         txtCICliente.setText(null);
         txtDireccionCliente.setText(null);
         txtTelefonoCliente.setText(null);
-    }
-
-    //Método para limpiar el área de texto
-    public void limpiarAreaDeTexto() {
         txaMostrarClienteRegistro.setText(null);
     }
 
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAceptar;
     private javax.swing.JButton btnRegistrarCliente;
-    private javax.swing.JButton btonAceptar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -9,21 +9,15 @@ import Products.*;
 import Products.bebida.*;
 import Products.snack.*;
 import Products.extra.*;
-import Registro.Orden;
+import Registro.DetalleOrden;
 import java.awt.Dimension;
 import java.awt.Image;
 import java.util.ArrayList;
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JInternalFrame;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -31,31 +25,31 @@ import javax.swing.table.DefaultTableModel;
  * @author danie
  */
 public class FrameCompra extends javax.swing.JInternalFrame {
-    
+
+    // Variable del precio total de la orden
     Double precioFinal = 0.0;
+
+    // Variable que guarda el precio de cada producto de la orden
     Double precio;
-    
+
     static Principal principal;
-    
+
     ImageIcon imgProducto;
     DefaultTableModel tableProductos = new DefaultTableModel();
-    ArrayList<Producto> listaProductos = new ArrayList<>();
-    
+
     public FrameCompra() {
         initComponents();
         this.setTitle("Cinema");
         ImageIcon imagenFondo = new ImageIcon("src\\img\\SistemaFondo_1.jpg");
         setModel();
         lblValor.setText("");
-        
-        
     }
-    
+
     public FrameCompra(Principal principal) {
         this.principal = principal;
-        
         initComponents();
         setModel();
+
         //Esconder Variables
         cmbDescripcion.setVisible(false);
         cmbTamanio.setVisible(false);
@@ -68,7 +62,6 @@ public class FrameCompra extends javax.swing.JInternalFrame {
         btnCantidadMas.setVisible(false);
         btnCantidadMenos.setVisible(false);
         lblValor.setVisible(false);
-        
     }
 
     /**
@@ -89,8 +82,8 @@ public class FrameCompra extends javax.swing.JInternalFrame {
         lblTamanio = new javax.swing.JLabel();
         lblCantidad = new javax.swing.JLabel();
         btnGenerarFactura = new javax.swing.JButton();
-        cmbProducto = new javax.swing.JComboBox<>();
-        cmbTamanio = new javax.swing.JComboBox<>();
+        cmbProducto = new javax.swing.JComboBox<String>();
+        cmbTamanio = new javax.swing.JComboBox<String>();
         lblNumeroCantidad = new javax.swing.JLabel();
         btnCantidadMas = new javax.swing.JButton();
         btnCantidadMenos = new javax.swing.JButton();
@@ -98,7 +91,7 @@ public class FrameCompra extends javax.swing.JInternalFrame {
         lblDescripcion = new javax.swing.JLabel();
         cmbDescripcion = new javax.swing.JComboBox();
         lblTipoBebida = new javax.swing.JLabel();
-        cmbTipoBebida = new javax.swing.JComboBox<>();
+        cmbTipoBebida = new javax.swing.JComboBox<String>();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableTotal = new javax.swing.JTable();
         lblValor = new javax.swing.JLabel();
@@ -149,7 +142,7 @@ public class FrameCompra extends javax.swing.JInternalFrame {
             }
         });
 
-        cmbProducto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Canguil", "Nacho", "HotDog", "Bebida" }));
+        cmbProducto.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Canguil", "Nacho", "HotDog", "Bebida" }));
         cmbProducto.setSelectedIndex(-1);
         cmbProducto.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         cmbProducto.addItemListener(new java.awt.event.ItemListener() {
@@ -202,7 +195,7 @@ public class FrameCompra extends javax.swing.JInternalFrame {
 
         lblTipoBebida.setText("Tipo de Bebida");
 
-        cmbTipoBebida.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Vaso", "Botella" }));
+        cmbTipoBebida.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Vaso", "Botella" }));
         cmbTipoBebida.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         cmbTipoBebida.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -263,7 +256,7 @@ public class FrameCompra extends javax.swing.JInternalFrame {
                                                     .addComponent(cmbDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                                         .addComponent(btnCantidadMenos, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGap(38, 38, 38)
+                                                        .addGap(40, 40, 40)
                                                         .addComponent(lblNumeroCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                         .addComponent(btnCantidadMas, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -323,122 +316,119 @@ public class FrameCompra extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblValor)
                     .addComponent(jLabel1))
-                .addContainerGap(8, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCantidadMasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCantidadMasActionPerformed
-        // TODO add your handling code here:
         int nuevaCantidad = Integer.parseInt(lblNumeroCantidad.getText()) + 1;
         lblNumeroCantidad.setText(String.valueOf(nuevaCantidad));
     }//GEN-LAST:event_btnCantidadMasActionPerformed
 
     private void cmbProductoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbProductoItemStateChanged
-        // TODO add your handling code here:
-        //Combobox Tamanio
-        ComboBoxModel<String> tamanioNachos = new DefaultComboBoxModel((new String[]{
-            "Normal", "Grande"}));
-        ComboBoxModel<String> tamanioCanguil = new DefaultComboBoxModel((new String[]{
-            "Normal", "Grande", "Pequeño"}));
-        ComboBoxModel<String> tamanioHotDog = new DefaultComboBoxModel((new String[]{
-            "Normal"}));
-        ComboBoxModel<String> tamanioBebida = new DefaultComboBoxModel((new String[]{
-            "Normal", "Grande"}));
+        if (cmbProducto.getSelectedIndex() != -1) {
+            //Combobox Tamanio
+            ComboBoxModel<String> tamanioNachos = new DefaultComboBoxModel((new String[]{
+                "Normal", "Grande"}));
+            ComboBoxModel<String> tamanioCanguil = new DefaultComboBoxModel((new String[]{
+                "Normal", "Grande", "Pequeño"}));
+            ComboBoxModel<String> tamanioHotDog = new DefaultComboBoxModel((new String[]{
+                "Normal"}));
+            ComboBoxModel<String> tamanioBebida = new DefaultComboBoxModel((new String[]{
+                "Normal", "Grande"}));
 
-        //Combobox Extras
-        ComboBoxModel<String> descripcionGeneral = new DefaultComboBoxModel((new String[]{
-            "Sin Extra", "Chile", "Carne Molida"}));
-        ComboBoxModel<String> descripcionBebida = new DefaultComboBoxModel((new String[]{
-            "Coca-Cola", "Sprite", "Fanta"}));
-        
-        String opcionProducto = cmbProducto.getSelectedItem().toString();
-        
-        cmbTamanio.setSelectedIndex(-1);
-        
-        if (opcionProducto.equals("Canguil")) {
-            cmbTamanio.setModel(tamanioCanguil);
-            cmbTamanio.setVisible(true);
-            cmbTamanio.setSelectedIndex(0);
-            lblTamanio.setVisible(true);
-            cmbDescripcion.setModel(descripcionGeneral);
-            cmbDescripcion.setVisible(false);
-            lblDescripcion.setVisible(false);
-            cmbTipoBebida.setVisible(false);
-            lblTipoBebida.setVisible(false);
-            lblCantidad.setVisible(true);
-            lblNumeroCantidad.setVisible(true);
-            btnCantidadMas.setVisible(true);
-            btnCantidadMenos.setVisible(true);
-            btnAnadirProducto.setEnabled(true);
-            this.imgProducto = new ImageIcon("src\\img\\popcorn.jpg");
-            jLImagenProducto.setIcon(new ImageIcon(imgProducto.getImage().getScaledInstance(jLImagenProducto.getWidth(), jLImagenProducto.getHeight(), Image.SCALE_SMOOTH)));
-            
-        } else if (opcionProducto.equals("Nacho")) {
-            cmbTamanio.setModel(tamanioNachos);
-            cmbTamanio.setVisible(true);
-            cmbTamanio.setSelectedIndex(0);
-            lblTamanio.setVisible(true);
-            cmbDescripcion.setModel(descripcionGeneral);
-            cmbDescripcion.setVisible(true);
-            cmbDescripcion.setSelectedIndex(0);
-            lblDescripcion.setVisible(true);
-            cmbTipoBebida.setVisible(false);
-            lblTipoBebida.setVisible(false);
-            lblCantidad.setVisible(true);
-            lblNumeroCantidad.setVisible(true);
-            btnCantidadMas.setVisible(true);
-            btnCantidadMenos.setVisible(true);
-            btnAnadirProducto.setEnabled(true);
-            this.imgProducto = new ImageIcon("src\\img\\nachos.jpg");
-            jLImagenProducto.setIcon(new ImageIcon(imgProducto.getImage().getScaledInstance(jLImagenProducto.getWidth(), jLImagenProducto.getHeight(), Image.SCALE_SMOOTH)));
-            
-        } else if (opcionProducto.equals("HotDog")) {
-            cmbTamanio.setModel(tamanioHotDog);
-            cmbTamanio.setVisible(false);
-            cmbTamanio.setSelectedIndex(0);
-            lblTamanio.setVisible(false);
-            cmbDescripcion.setModel(descripcionGeneral);
-            cmbDescripcion.setVisible(true);
-            cmbDescripcion.setSelectedIndex(0);
-            lblDescripcion.setVisible(true);
-            cmbTipoBebida.setVisible(false);
-            lblTipoBebida.setVisible(false);
-            lblCantidad.setVisible(true);
-            lblNumeroCantidad.setVisible(true);
-            btnCantidadMas.setVisible(true);
-            btnCantidadMenos.setVisible(true);
-            btnAnadirProducto.setEnabled(true);
-            this.imgProducto = new ImageIcon("src\\img\\hotdog.jpg");
-            jLImagenProducto.setIcon(new ImageIcon(imgProducto.getImage().getScaledInstance(jLImagenProducto.getWidth(), jLImagenProducto.getHeight(), Image.SCALE_SMOOTH)));
-            
-        } else if (opcionProducto.equals("Bebida")) {
-            cmbTamanio.setModel(tamanioBebida);
-            cmbTamanio.setVisible(true);
-            cmbTamanio.setSelectedIndex(0);
-            lblTamanio.setVisible(true);
-            cmbDescripcion.setModel(descripcionBebida);
-            cmbDescripcion.setVisible(true);
-            cmbDescripcion.setSelectedIndex(0);
-            lblDescripcion.setVisible(true);
-            cmbTipoBebida.setVisible(true);
-            cmbTipoBebida.setSelectedIndex(0);
-            lblTipoBebida.setVisible(true);
-            lblCantidad.setVisible(true);
-            lblNumeroCantidad.setVisible(true);
-            btnCantidadMas.setVisible(true);
-            btnCantidadMenos.setVisible(true);
-            btnAnadirProducto.setEnabled(true);
-            this.imgProducto = new ImageIcon("src\\img\\cocacolaaCine.jpg");
-            jLImagenProducto.setIcon(new ImageIcon(imgProducto.getImage().getScaledInstance(jLImagenProducto.getWidth(), jLImagenProducto.getHeight(), Image.SCALE_SMOOTH)));
-            
+            //Combobox Extras
+            ComboBoxModel<String> descripcionGeneral = new DefaultComboBoxModel((new String[]{
+                "Sin Extra", "Chile", "Carne Molida"}));
+            ComboBoxModel<String> descripcionBebida = new DefaultComboBoxModel((new String[]{
+                "Coca-Cola", "Sprite", "Fanta"}));
+
+            String opcionProducto = cmbProducto.getSelectedItem().toString();
+
+            cmbTamanio.setSelectedIndex(-1);
+
+            if (opcionProducto.equals("Canguil")) {
+                cmbTamanio.setModel(tamanioCanguil);
+                cmbTamanio.setVisible(true);
+                cmbTamanio.setSelectedIndex(0);
+                lblTamanio.setVisible(true);
+                cmbDescripcion.setModel(descripcionGeneral);
+                cmbDescripcion.setVisible(false);
+                lblDescripcion.setVisible(false);
+                cmbTipoBebida.setVisible(false);
+                lblTipoBebida.setVisible(false);
+                lblCantidad.setVisible(true);
+                lblNumeroCantidad.setVisible(true);
+                btnCantidadMas.setVisible(true);
+                btnCantidadMenos.setVisible(true);
+                btnAnadirProducto.setEnabled(true);
+                this.imgProducto = new ImageIcon("src\\img\\popcorn.jpg");
+                jLImagenProducto.setIcon(new ImageIcon(imgProducto.getImage().getScaledInstance(jLImagenProducto.getWidth(), jLImagenProducto.getHeight(), Image.SCALE_SMOOTH)));
+
+            } else if (opcionProducto.equals("Nacho")) {
+                cmbTamanio.setModel(tamanioNachos);
+                cmbTamanio.setVisible(true);
+                cmbTamanio.setSelectedIndex(0);
+                lblTamanio.setVisible(true);
+                cmbDescripcion.setModel(descripcionGeneral);
+                cmbDescripcion.setVisible(true);
+                cmbDescripcion.setSelectedIndex(0);
+                lblDescripcion.setVisible(true);
+                cmbTipoBebida.setVisible(false);
+                lblTipoBebida.setVisible(false);
+                lblCantidad.setVisible(true);
+                lblNumeroCantidad.setVisible(true);
+                btnCantidadMas.setVisible(true);
+                btnCantidadMenos.setVisible(true);
+                btnAnadirProducto.setEnabled(true);
+                this.imgProducto = new ImageIcon("src\\img\\nachos.jpg");
+                jLImagenProducto.setIcon(new ImageIcon(imgProducto.getImage().getScaledInstance(jLImagenProducto.getWidth(), jLImagenProducto.getHeight(), Image.SCALE_SMOOTH)));
+
+            } else if (opcionProducto.equals("HotDog")) {
+                cmbTamanio.setModel(tamanioHotDog);
+                cmbTamanio.setVisible(false);
+                cmbTamanio.setSelectedIndex(0);
+                lblTamanio.setVisible(false);
+                cmbDescripcion.setModel(descripcionGeneral);
+                cmbDescripcion.setVisible(true);
+                cmbDescripcion.setSelectedIndex(0);
+                lblDescripcion.setVisible(true);
+                cmbTipoBebida.setVisible(false);
+                lblTipoBebida.setVisible(false);
+                lblCantidad.setVisible(true);
+                lblNumeroCantidad.setVisible(true);
+                btnCantidadMas.setVisible(true);
+                btnCantidadMenos.setVisible(true);
+                btnAnadirProducto.setEnabled(true);
+                this.imgProducto = new ImageIcon("src\\img\\hotdog.jpg");
+                jLImagenProducto.setIcon(new ImageIcon(imgProducto.getImage().getScaledInstance(jLImagenProducto.getWidth(), jLImagenProducto.getHeight(), Image.SCALE_SMOOTH)));
+
+            } else if (opcionProducto.equals("Bebida")) {
+                cmbTamanio.setModel(tamanioBebida);
+                cmbTamanio.setVisible(true);
+                cmbTamanio.setSelectedIndex(0);
+                lblTamanio.setVisible(true);
+                cmbDescripcion.setModel(descripcionBebida);
+                cmbDescripcion.setVisible(true);
+                cmbDescripcion.setSelectedIndex(0);
+                lblDescripcion.setVisible(true);
+                cmbTipoBebida.setVisible(true);
+                cmbTipoBebida.setSelectedIndex(0);
+                lblTipoBebida.setVisible(true);
+                lblCantidad.setVisible(true);
+                lblNumeroCantidad.setVisible(true);
+                btnCantidadMas.setVisible(true);
+                btnCantidadMenos.setVisible(true);
+                btnAnadirProducto.setEnabled(true);
+                this.imgProducto = new ImageIcon("src\\img\\cocacolaaCine.jpg");
+                jLImagenProducto.setIcon(new ImageIcon(imgProducto.getImage().getScaledInstance(jLImagenProducto.getWidth(), jLImagenProducto.getHeight(), Image.SCALE_SMOOTH)));
+            }
         }
-
     }//GEN-LAST:event_cmbProductoItemStateChanged
 
     private void cmbTamanioItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbTamanioItemStateChanged
-        // TODO add your handling code here:
         if (cmbTamanio.isEnabled()) {
             btnCantidadMas.setEnabled(true);
             btnCantidadMenos.setEnabled(true);
@@ -449,22 +439,20 @@ public class FrameCompra extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_cmbTamanioItemStateChanged
 
     private void btnAnadirProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnadirProductoActionPerformed
-        // TODO add your handling code here:
-
         if (Integer.parseInt(lblNumeroCantidad.getText()) != 0) {
             String producto = cmbProducto.getSelectedItem().toString();
             String tamanio = cmbTamanio.getSelectedItem().toString();
             String extra = cmbDescripcion.getSelectedItem().toString();
-            
-            Producto prodLista = new Nacho(tamanio);
+
+            Producto prodLista;
             String extraTexto = "";
             precio = 0.0;
-            if (producto == "Canguil") {
+            if (producto.equals("Canguil")) {
                 prodLista = new Canguil(tamanio);
                 precio = prodLista.getPrecio();
-            } else if (producto == "Bebida") {
+            } else if (producto.equals("Bebida")) {
                 String tipoBebida = cmbTipoBebida.getSelectedItem().toString();
-                if (tipoBebida == "Vaso") {
+                if (tipoBebida.equals("Vaso")) {
                     prodLista = new Vaso(tamanio, extra);
                     extraTexto = " - " + extra;
                 } else {
@@ -474,16 +462,14 @@ public class FrameCompra extends javax.swing.JInternalFrame {
                 precio = prodLista.getPrecio();
             } else {
                 Snack snack;
-                if (producto == "Nacho") {
+                if (producto.equals("Nacho")) {
                     snack = new Nacho(tamanio);
-                    
                 } else {
                     snack = new HotDog();
-                    
                 }
-                
+
                 if (cmbDescripcion.getSelectedIndex() != 0) {
-                    if (extra == "Chile") {
+                    if (extra.equals("Chile")) {
                         prodLista = new Chile(snack);
                         precio = prodLista.getPrecio();
                         extraTexto = "con Chile";
@@ -497,24 +483,20 @@ public class FrameCompra extends javax.swing.JInternalFrame {
                     precio = prodLista.getPrecio();
                 }
             }
-            principal.productos.add(prodLista);
-            
+
             setDatos(prodLista, extraTexto);
-            
         } else {
             JOptionPane.showMessageDialog(rootPane, "No se puede agregar"
                     + " el producto\nPor favor, ingrese una cantidad válida",
                     "Error", WIDTH, frameIcon);
         }
-        
+
         lblNumeroCantidad.setText(String.valueOf(0));
         lblValor.setVisible(true);
-        lblValor.setText("$ " + String.valueOf(precioFinal));
-
+        lblValor.setText("$ " + String.format("%.2f", precioFinal));
     }//GEN-LAST:event_btnAnadirProductoActionPerformed
 
     private void btnCantidadMenosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCantidadMenosActionPerformed
-        // TODO add your handling code here:
         int nuevaCantidad = Integer.parseInt(lblNumeroCantidad.getText()) - 1;
         if (nuevaCantidad < 0) {
             lblNumeroCantidad.setText(String.valueOf(0));
@@ -524,9 +506,12 @@ public class FrameCompra extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnCantidadMenosActionPerformed
 
     private void btnGenerarFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarFacturaActionPerformed
-        principal.CentrarVentana(principal.registrarCliente);
+        principal.ordenActual.setDetallesOrden(principal.detallesOrden);
+        
+        principal.centrarVentana(principal.registrarCliente);
         principal.registrarCliente.setVisible(true);
         this.setVisible(false);
+        cmbProducto.setSelectedIndex(-1);
     }//GEN-LAST:event_btnGenerarFacturaActionPerformed
 
     private void cmbTipoBebidaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbTipoBebidaItemStateChanged
@@ -535,9 +520,9 @@ public class FrameCompra extends javax.swing.JInternalFrame {
             "Normal", "Grande"}));
         ComboBoxModel<String> tipoBotella = new DefaultComboBoxModel((new String[]{
             "Normal"}));
-        
+
         String tipo = cmbTipoBebida.getSelectedItem().toString();
-        
+
         if (tipo.equals("Vaso")) {
             cmbTamanio.setModel(tipoVaso);
             cmbTamanio.setVisible(true);
@@ -551,64 +536,62 @@ public class FrameCompra extends javax.swing.JInternalFrame {
 
     //Método para limpiar todos los campos
     public void limpiarCasillas() {
-        //txtCIReservacion.setText(null);
-        //txtCodigoReservacion.setText(null);
-        cmbProducto.setSelectedIndex(0);
-        cmbTamanio.setSelectedIndex(0);
-        //cmbAnio.setSelectedIndex(0);
-        //txtISBNReservacion.setText(null);
+        cmbProducto.setSelectedIndex(-1);
+        cmbTamanio.setVisible(false);
+        cmbDescripcion.setVisible(false);
+        cmbTipoBebida.setVisible(false);
+        lblCantidad.setVisible(false);
+        lblNumeroCantidad.setVisible(false);
+        btnCantidadMas.setVisible(false);
+        btnCantidadMenos.setVisible(false);
+        btnAnadirProducto.setEnabled(false);
+        lblValor.setText("");
+        precioFinal = 0.0;
+        tableProductos.setRowCount(0);
     }
-    
+
     void CentrarVentana(JInternalFrame frame) {
-        cerrarVentanas();
         Dimension dimension = this.getSize();
         Dimension Dframe = frame.getSize();
         frame.setLocation((dimension.width - Dframe.width) / 2, (dimension.height - Dframe.height) / 2);
         frame.show();
     }
-    
-    void cerrarVentanas() {
-    }
-    
+
     private void setModel() {
         String[] cabecera = {"Cantidad", "Producto", "Precio Unidad", "P.V.P."};
         tableProductos.setColumnIdentifiers(cabecera);
         jTableTotal.setModel(tableProductos);
     }
 
-    /*    private
-            void llenarLista() {
-        int cantidad = Integer.parseInt(lblCantidad.getText());
-        String producto = cmbProducto.getSelectedItem().toString();;
-        double precio;
-        double Total;
-        Producto productListaFactura = new Producto
-
-
-    }*/
     private void setDatos(Producto p, String extra) {
         Double precioProductos;
         String producto = cmbProducto.getSelectedItem().toString();
         String tipoBebida = cmbTipoBebida.getSelectedItem().toString();
         Object[] datos = new Object[tableProductos.getColumnCount()];
         //tableProductos.setRowCount(0);
-        /*for (Producto p : principal.productos) */
         datos[0] = lblNumeroCantidad.getText();
         if (producto.equals("Bebida")) {
             datos[1] = tipoBebida + " " + extra;
         } else {
             datos[1] = producto + " " + extra;
         }
-        
+
         datos[2] = p.getPrecio();
-        datos[3] = Double.parseDouble(lblNumeroCantidad.getText()) * p.getPrecio();
+        datos[3] = String.format("%.2f", Double.parseDouble(lblNumeroCantidad.getText()) * p.getPrecio());
         precioProductos = Double.parseDouble(lblNumeroCantidad.getText()) * p.getPrecio();
-        
+
         tableProductos.addRow(datos);
         
-        jTableTotal.setModel(tableProductos);
+        DetalleOrden nuevoDetalle = new DetalleOrden(
+                Integer.parseInt(datos[0].toString()), 
+                datos[1].toString(), 
+                Double.parseDouble(datos[2].toString()), 
+                Double.parseDouble(lblNumeroCantidad.getText()) * p.getPrecio());
+        principal.detallesOrden.add(nuevoDetalle);
         
-        precioFinal = precioFinal + precioProductos;
+        jTableTotal.setModel(tableProductos);
+
+        precioFinal += precioProductos;
     }
 
 

@@ -15,7 +15,6 @@ import Registro.Factura;
 public class FrameGenerarFactura extends javax.swing.JInternalFrame {
 
     static Principal principal;
-    Cliente cliente = new Cliente();
 
     /**
      * Creates new form FrameRegistrarVenta
@@ -31,14 +30,16 @@ public class FrameGenerarFactura extends javax.swing.JInternalFrame {
     public FrameGenerarFactura(Principal principal) {
         this.principal = principal;
         initComponents();
+        
+        
     }
 
     public void mostrarDatos() {
-        lblNombreCliente.setText(principal.registrarCliente.nombreCompleto);
-        lblCedula.setText(principal.registrarCliente.ci);
-        lblDireccion.setText(principal.registrarCliente.direccion);
-        lblTelefono.setText(principal.registrarCliente.telefono);
-        lblPrecioFinal.setText(String.valueOf(principal.compra.precioFinal));
+        lblNombreCliente.setText(principal.clienteActual.getNombres() +  principal.clienteActual.getApellidos());
+        lblCedula.setText(principal.clienteActual.getCedula());
+        lblDireccion.setText(principal.clienteActual.getDireccion());
+        lblTelefono.setText(principal.clienteActual.getTelf());
+        lblPrecioFinal.setText("$ " + String.format("%.2f", principal.ordenActual.calcularTotal()));
     }
 
     /**
@@ -69,15 +70,18 @@ public class FrameGenerarFactura extends javax.swing.JInternalFrame {
         lblGenerarFactura.setFont(new java.awt.Font("Calibri Light", 1, 18)); // NOI18N
         lblGenerarFactura.setText("FACTURA");
 
-        lblNombreEmpresa.setText("Empresa");
+        lblNombreEmpresa.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lblNombreEmpresa.setText("Empresa:");
 
-        jLabel2.setText("Cliente");
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel2.setText("Cliente:");
 
         lblCine.setText("Star Cines");
 
         lblRuc2.setText("1768156470004");
 
-        lblRuc.setText("RUC");
+        lblRuc.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        lblRuc.setText("RUC:");
 
         lblNombreCliente.setText("jLabel4");
 
@@ -87,13 +91,17 @@ public class FrameGenerarFactura extends javax.swing.JInternalFrame {
 
         lblTelefono.setText("jLabel7");
 
-        Cedula.setText("Cedula");
+        Cedula.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        Cedula.setText("Cedula:");
 
-        Cedula1.setText("Direccion");
+        Cedula1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        Cedula1.setText("Direccion:");
 
-        Cedula2.setText("Telefono");
+        Cedula2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        Cedula2.setText("Telefono:");
 
-        Cedula3.setText("Precio Final");
+        Cedula3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        Cedula3.setText("Precio Final:");
 
         lblPrecioFinal.setText("jLabel8");
 
@@ -105,41 +113,44 @@ public class FrameGenerarFactura extends javax.swing.JInternalFrame {
                 .addGap(53, 53, 53)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblNombreEmpresa)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblCine)
+                        .addGap(113, 113, 113))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(lblRuc)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblRuc2)
+                        .addGap(96, 96, 96))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblNombreEmpresa)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(lblRuc))
                             .addComponent(jLabel2)
+                            .addComponent(Cedula1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblNombreCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)
+                            .addComponent(lblDireccion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(23, 23, 23))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(Cedula)
-                            .addComponent(Cedula1)
-                            .addComponent(Cedula2))
-                        .addGap(59, 59, 59)
+                            .addComponent(Cedula2)
+                            .addComponent(Cedula3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 114, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(32, 32, 32)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblRuc2)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(17, 17, 17)
-                                        .addComponent(lblCine))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(49, 49, 49)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lblCedula)
-                                    .addComponent(lblNombreCliente)
-                                    .addComponent(lblDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblTelefono)
-                                    .addComponent(lblPrecioFinal))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(Cedula3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblGenerarFactura, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(74, 74, 74)))
-                .addContainerGap(40, Short.MAX_VALUE))
+                                .addComponent(lblCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(88, 88, 88))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(lblTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(91, 91, 91))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(lblPrecioFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(108, 108, 108))))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(157, 157, 157)
+                .addComponent(lblGenerarFactura, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,19 +172,19 @@ public class FrameGenerarFactura extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCedula)
                     .addComponent(Cedula))
+                .addGap(11, 11, 11)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Cedula1)
+                    .addComponent(lblDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblDireccion)
-                    .addComponent(Cedula1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTelefono)
-                    .addComponent(Cedula2))
-                .addGap(18, 18, 18)
+                    .addComponent(Cedula2)
+                    .addComponent(lblTelefono))
+                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Cedula3)
                     .addComponent(lblPrecioFinal))
-                .addGap(0, 36, Short.MAX_VALUE))
+                .addGap(0, 47, Short.MAX_VALUE))
         );
 
         pack();

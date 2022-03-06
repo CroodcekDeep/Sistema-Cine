@@ -5,8 +5,10 @@
  */
 package GUI;
 
-import Products.Producto;
-import java.awt.Component;
+import Registro.Cliente;
+import Registro.DetalleOrden;
+import Registro.Factura;
+import Registro.Orden;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Image;
@@ -20,39 +22,31 @@ import javax.swing.JOptionPane;
  *
  * @author danie
  */
-public
-        class Principal extends javax.swing.JFrame {
-
-    //Se debe indicar la cantidad máxima de libros de la biblioteca
-    ArrayList<Producto> productos = new ArrayList<>();
-
-    //Se declaran las instancias de las estructuras
-    //ArregloLibros libros = new ArregloLibros(MAX_LIBROS);
-    //ListaClientes clientes = new ListaClientes();
-    //ColaReservaciones reservaciones = new ColaReservaciones();
-    //Se inicializan las interfaces
+public class Principal extends javax.swing.JFrame {
+    
+    // Se guardan las variables para el manejo de la orden
+    Cliente clienteActual;
+    Orden ordenActual;
+    ArrayList<DetalleOrden> detallesOrden;
+    Factura facturaActual;
+    
+    // Se declaran las ventanas para la compra de productos
     FrameCompra compra = new FrameCompra(this);
     FrameRegistrarCliente registrarCliente = new FrameRegistrarCliente(this);
     FrameGenerarFactura factura = new FrameGenerarFactura(this);
 
-
-    public
-            Principal() {
+    public Principal() {
         initComponents();
         lblNombre.setFont(new Font("Calibri", Font.BOLD, 50));
-
         this.setExtendedState(MAXIMIZED_BOTH);
         ventanaPrincipal.add(compra);
         ventanaPrincipal.add(registrarCliente);
         ventanaPrincipal.add(factura);
-        
 
-
-//carga de imagenes
+        //carga de imagenes
         this.setTitle("Cinema");
         ImageIcon imagenFondo = new ImageIcon("src\\img\\SistemaFondo_1.jpg");
-        //jLabel1.setIcon(new ImageIcon(imagenFondo.getImage().getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(), Image.SCALE_SMOOTH)));
-
+        //jLabel1.setIcon(new ImageIcon(imagenFondo.getImage().getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(), Image.SCALE_SMOOTH)));s
     }
 
     /**
@@ -124,20 +118,31 @@ public
 
     private void btnCatalogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCatalogoActionPerformed
         // TODO add your handling code here:
-        CentrarVentana(compra);
+        limpiarVentanas();
+        factura.setVisible(false);
+        centrarVentana(compra);
+        
+        clienteActual = null;
+        ordenActual = new Orden(clienteActual);
+        detallesOrden = new ArrayList<>();
+        facturaActual = new Factura(ordenActual);
     }//GEN-LAST:event_btnCatalogoActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    void CentrarVentana(JInternalFrame frame) {
+    void centrarVentana(JInternalFrame frame) {
         Dimension dimension = ventanaPrincipal.getSize();
         Dimension Dframe = frame.getSize();
         frame.setLocation((dimension.width - Dframe.width) / 2, (dimension.height - Dframe.height) / 2);
         frame.show();
     }
 
-
+    void limpiarVentanas() {
+        compra.limpiarCasillas();
+        registrarCliente.limpiarCasillas();
+    }
+    
     public static
             void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -176,8 +181,7 @@ public
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public
-                    void run() {
+            public void run() {
                 new Principal().setVisible(true);
             }
         });
