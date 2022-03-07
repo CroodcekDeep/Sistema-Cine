@@ -152,7 +152,7 @@ Extra <|-- Chile
 Bebida <|-- Vaso
 Bebida <|-- Botella
 
-DetalleOrden <.. Producto
+DetalleOrden "1" --> "1" Producto: usa
 
 Orden "1"-->"1" Cliente: tiene
 @enduml
