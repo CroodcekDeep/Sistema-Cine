@@ -84,3 +84,4 @@ src/TestSistema.java
 build.xml
 manifest.mf
 nbproject/
+/dist/

@@ -364,7 +364,8 @@ public class FrameCompra extends javax.swing.JInternalFrame {
                 btnCantidadMas.setVisible(true);
                 btnCantidadMenos.setVisible(true);
                 btnAnadirProducto.setEnabled(true);
-                this.imgProducto = new ImageIcon("src\\img\\popcorn.jpg");
+                this.imgProducto = new ImageIcon(getClass().getResource("/img/popcorn.jpg"));
+                //this.imgProducto = new ImageIcon("src\\img\\popcorn.jpg");
                 jLImagenProducto.setIcon(new ImageIcon(imgProducto.getImage().getScaledInstance(jLImagenProducto.getWidth(), jLImagenProducto.getHeight(), Image.SCALE_SMOOTH)));
 
             } else if (opcionProducto.equals("Nacho")) {
@@ -383,7 +384,8 @@ public class FrameCompra extends javax.swing.JInternalFrame {
                 btnCantidadMas.setVisible(true);
                 btnCantidadMenos.setVisible(true);
                 btnAnadirProducto.setEnabled(true);
-                this.imgProducto = new ImageIcon("src\\img\\nachos.jpg");
+                this.imgProducto = new ImageIcon(getClass().getResource("/img/nachos.jpg"));
+                //this.imgProducto = new ImageIcon("src\\img\\nachos.jpg");
                 jLImagenProducto.setIcon(new ImageIcon(imgProducto.getImage().getScaledInstance(jLImagenProducto.getWidth(), jLImagenProducto.getHeight(), Image.SCALE_SMOOTH)));
 
             } else if (opcionProducto.equals("HotDog")) {
@@ -402,7 +404,8 @@ public class FrameCompra extends javax.swing.JInternalFrame {
                 btnCantidadMas.setVisible(true);
                 btnCantidadMenos.setVisible(true);
                 btnAnadirProducto.setEnabled(true);
-                this.imgProducto = new ImageIcon("src\\img\\hotdog.jpg");
+                this.imgProducto = new ImageIcon(getClass().getResource("/img/hotdog.jpg"));
+                //this.imgProducto = new ImageIcon("src\\img\\hotdog.jpg");
                 jLImagenProducto.setIcon(new ImageIcon(imgProducto.getImage().getScaledInstance(jLImagenProducto.getWidth(), jLImagenProducto.getHeight(), Image.SCALE_SMOOTH)));
 
             } else if (opcionProducto.equals("Bebida")) {
@@ -422,7 +425,8 @@ public class FrameCompra extends javax.swing.JInternalFrame {
                 btnCantidadMas.setVisible(true);
                 btnCantidadMenos.setVisible(true);
                 btnAnadirProducto.setEnabled(true);
-                this.imgProducto = new ImageIcon("src\\img\\cocacolaaCine.jpg");
+                this.imgProducto = new ImageIcon(getClass().getResource("/img/cocacolaaCine.jpg"));
+                //this.imgProducto = new ImageIcon("src\\img\\cocacolaaCine.jpg");
                 jLImagenProducto.setIcon(new ImageIcon(imgProducto.getImage().getScaledInstance(jLImagenProducto.getWidth(), jLImagenProducto.getHeight(), Image.SCALE_SMOOTH)));
             }
         }
@@ -485,6 +489,10 @@ public class FrameCompra extends javax.swing.JInternalFrame {
             }
 
             setDatos(prodLista, extraTexto);
+            
+            if (!btnGenerarFactura.isEnabled())
+                btnGenerarFactura.setEnabled(true);
+            
         } else {
             JOptionPane.showMessageDialog(rootPane, "No se puede agregar"
                     + " el producto\nPor favor, ingrese una cantidad válida",
@@ -545,9 +553,13 @@ public class FrameCompra extends javax.swing.JInternalFrame {
         btnCantidadMas.setVisible(false);
         btnCantidadMenos.setVisible(false);
         btnAnadirProducto.setEnabled(false);
+        btnGenerarFactura.setEnabled(false);
         lblValor.setText("");
         precioFinal = 0.0;
         tableProductos.setRowCount(0);
+        
+        this.imgProducto = new ImageIcon(getClass().getResource("/img/StarCines.jpg"));
+        jLImagenProducto.setIcon(new ImageIcon(imgProducto.getImage().getScaledInstance(jLImagenProducto.getWidth(), jLImagenProducto.getHeight(), Image.SCALE_SMOOTH)));
     }
 
     void CentrarVentana(JInternalFrame frame) {
